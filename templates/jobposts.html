@@ -1,6 +1,16 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 
 
 {% block content %}
 
 {% endblock %}
+=======
+{% for job in jobs %}
+<div>{{ job.title }}</div>
+<div>{{ job.salary }}</div>
+<div>{{ job.description}}</div>
+<div>{{ job.created_by}}</div>
+
+{% endfor %}
+>>>>>>> Backend boilerplate for login, register and adding job posts

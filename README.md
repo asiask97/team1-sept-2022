@@ -90,16 +90,8 @@ Screenshot of databse model and description of model and reasons for each field 
 ### Skeleton
 
 #### Wireframes
-Descriptions
 
-* Homepage
-
-screenshots here
-
-* Job Listing
-
-
-
+All wireframes were designed base on mobile first principle, along side with a tablet and destop view. You can see all wireframes [here](static/documentation/wireframes.md).
 
 ### Surface
 

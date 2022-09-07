@@ -156,12 +156,29 @@ def addjob():
         childcare = "childcare" in request.form
         parttime = "parttime" in request.form
         fourday = "fourday" in request.form
+        
         salary = 0.0
         if(request.form.get('salary')):
             salary = request.form.get('salary')
-        job = Jobs(title = request.form.get('title'), description = request.form.get('description'), location = request.form.get('location'), salary = salary, created_by = current_user.id, parttime=parttime, fourday=fourday, childcare=childcare)
+
+        referenceNo = ''
+        if(request.form.get('refnum')):
+            referenceNo = request.form.get('refnum')
+
+        job = Jobs( title = request.form.get('title'), 
+                    referenceNo = referenceNo, 
+                    description = request.form.get('discription'), 
+                    location = request.form.get('location'), 
+                    salary = salary, 
+                    created_by = current_user.id, 
+                    parttime=parttime, 
+                    fourday=fourday, 
+                    childcare=childcare
+        )
+
         db.session.add(job)
         db.session.commit()
+        flash('Your job was posted.')
         return render_template('jobposts.html')
 
 

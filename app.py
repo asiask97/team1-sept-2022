@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request, render_template
 from flask_sqlalchemy import SQLAlchemy
-from flask_marshmallow import Marshmallow
+from flask_marshmallow import Marshmallow, fields
 from flask_cors import CORS
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
+import itertools
+
 
 
 app = Flask(__name__)
@@ -54,6 +56,9 @@ class Jobs(db.Model):
     description = db.Column(db.String(2000), nullable=False)
     salary = db.Column(db.Float)
     datetime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    parttime = db.Column(db.Boolean, default=False, nullable=False)
+    fourday = db.Column(db.Boolean, default=False, nullable=False)
+    childcare = db.Column(db.Boolean, default=False, nullable=False)
 
 class UsersShema(ma.SQLAlchemyAutoSchema):
     class Meta:
@@ -61,7 +66,7 @@ class UsersShema(ma.SQLAlchemyAutoSchema):
 
 class JobsShema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = Jobs
+        fields = ("title", "datetime", "created_by","datetime","description","salary","data")
 
 @app.route('/', methods = ['GET'])
 def index():
@@ -110,10 +115,17 @@ def login():
 @app.route('/jobposts', methods = ['GET'])
 def jobposts():
     jobs = Jobs.query.all()
-    print(jobs)
+    created_by = []
+    for job in jobs:
+        user = Users.query.filter_by(id = job.created_by).first()
+        created_by.append(user.name)
     if request.method == 'GET':
-        return render_template('jobposts.html', jobs=jobs)
+        return render_template('jobposts.html', packed=zip(jobs, created_by))
 
+# work in progess
+#@app.route('/jobposts/delete/<int:id>', methods = ['POST'])
+#def jobposts_delete(id):
+#    post_to_delte = Jobs.query
 
 @app.route('/addjob', methods = ['GET','POST'])
 @login_required
@@ -129,3 +141,32 @@ def addjob():
         db.session.add(job)
         db.session.commit()
         return render_template('jobposts.html')
+
+
+# API 
+@app.route('/api-jobs/parttime', methods = ['GET'])
+def api_parttime():
+    if request.method == 'GET':   
+        return findCorrectJobs('parttime')
+
+@app.route('/api-jobs/fourday', methods = ['GET'])
+def api_fourday():
+    if request.method == 'GET':   
+        return findCorrectJobs('fourday')
+
+@app.route('/api-jobs/childcare', methods = ['GET'])
+def api_childcare():
+    if request.method == 'GET': 
+        return findCorrectJobs('childcare')
+
+def findCorrectJobs(typeofbadge):
+    print(typeofbadge)
+    kwargs = {typeofbadge : True}
+    jobs = Jobs.query.filter_by(**kwargs)
+    for job in jobs:
+        user = Users.query.filter_by(id = job.created_by).first()
+        job.data = user.name
+        print(job.data)
+    job_schema = JobsShema()
+    output = job_schema.dump(jobs, many=True)
+    return jsonify({'jobs': output})

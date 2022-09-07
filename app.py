@@ -104,10 +104,13 @@ def login():
 
     if request.method == 'POST':
         user = Users.query.filter_by(email = request.form.get('email')).first()
-        if(check_password_hash(user.password_hash, request.form.get('psw'))):
-            #login user
-            login_user(user)
-            return render_template('jobposts.html')
+        if(user):
+            if(check_password_hash(user.password_hash, request.form.get('psw'))):
+                #login user
+                login_user(user)
+                return render_template('jobposts.html')
+            else:
+                return render_template('login.html')
         else:
             return render_template('login.html')
 
@@ -134,10 +137,14 @@ def addjob():
         return render_template('addjob.html')
 
     if request.method == 'POST':
-        salary = 'NaN'
+
+        childcare = "childcare" in request.form
+        parttime = "parttime" in request.form
+        fourday = "fourday" in request.form
+        salary = 0.0
         if(request.form.get('salary')):
             salary = request.form.get('salary')
-        job = Jobs(title = request.form.get('title'), description = request.form.get('description'), salary = salary, created_by = current_user.id)
+        job = Jobs(title = request.form.get('title'), description = request.form.get('description'), salary = salary, created_by = current_user.id, parttime=parttime, fourday=fourday, childcare=childcare)
         db.session.add(job)
         db.session.commit()
         return render_template('jobposts.html')

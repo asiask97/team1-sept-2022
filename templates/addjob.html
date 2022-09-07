@@ -2,40 +2,41 @@
 
 
 {% block content %}
-
-<form action="/addjob" method="POST">
-    <div class="container">
-        <!-- change but keep amount of feilds and feilds IDs the same -->
-      <h1>Add Job Offer</h1>
-      <p>Please fill in this form to create add Job Offer.</p>
-      <hr>
-      
-      <label for="title"><b>Title</b></label>
-      <input type="text" placeholder="Enter Job Title" name="title" id="title" required>
-  
-      <label for="description"><b>Description</b></label>
-      <input type="text" placeholder="Enter Job Description" name="description" id="description" required>
-  
-      <label for="salary"><b>Salary</b></label>
-      <input type="number" placeholder="Enter Salary" name="salary" id="salary"><br>
-      
-      <label for="location"><b>Location</b></label>
-      <input type="text" placeholder="Enter location" name="location" id="location">
-
-      <h2>What does this job/company offer?</h2>
-      <input type="checkbox" id="parttime" name="parttime" value="parttime">
-      <label for="parttime">Part Time</label>
-
-      <input type="checkbox" id="fourday" name="fourday" value="fourday">
-      <label for="fourday">4 Day Week </label>
-
-      <input type="checkbox" id="childcare" name="childcare" value="True">
-      <label for="childcare">Childcare available</label>
-
-      <br>
-
-      <button type="submit" class="registerbtn">Add</button>
+<form action="/addjob" method="POST" id="add_job_form">
+  <h1>Add Job Offer</h1>
+  <p>Please fill in this form to create add Job Offer.</p>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" class="form-control" name="title" id="title" >
+  </div>
+  <div class="mb-3">
+    <label for="location" class="form-label">Location</label>
+    <input type="text" class="form-control" name="location" id="location">
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="salary" class="form-label">Salary</label>
+      <input type="number" class="form-control" name="salary" id="salary">
     </div>
+    <div class="col">
+      <label for="refnum" class="form-label">Reference Number</label>
+      <input type="text" class="form-control" name="refnum" id="refnum" >
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="discription" class="form-label">Discription</label>
+    <textarea class="form-control" id="discription" rows="3" name="discription"></textarea>
+  </div>
+  <div class="mb-3">
+    <input class="form-check-input" type="checkbox" id="parttime" name="parttime" value="True">
+    <label class="form-check-label" for="parttime">Part Time</label>
+
+    <input class="form-check-input" type="checkbox" id="fourday" name="fourday" value="False">
+    <label class="form-check-label" for="fourday">4 Day Week</label>
+    
+    <input class="form-check-input" type="checkbox" id="childcare" name="childcare" value="True">
+    <label class="form-check-label" for="childcare">Childcare available</label>
+  </div>
+  <button type="submit" class="btn btn-warning">Submit</button>
 </form>
-  
 {% endblock %}

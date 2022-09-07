@@ -2,20 +2,18 @@
 
 
 {% block content %}
-<form action="/login" method="POST">
-    <div class="container">
-        <!-- Taken from w3schools mention in readme or change but keep amount of feilds and feilds IDs the same-->
-     
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" id="email" required>
-  
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-        
-      <button type="submit" class="registerbtn">Log In</button>
+  <form  action="/login" method="POST" id="login_from" class="align-middle">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
     </div>
-  
-</form>
+    <div class="mb-3">
+      <label for="psw" class="form-label">Password</label>
+      <input type="password" class="form-control" id="psw" required>
+    </div>
+    <button type="submit" class="btn btn-warning">Login</button>
+  </form>
 {% endblock %}
 
   

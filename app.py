@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow, fields
 from flask_cors import CORS
@@ -109,10 +109,9 @@ def login():
                 #login user
                 login_user(user)
                 return render_template('jobposts.html')
-            else:
-                return render_template('login.html')
         else:
-            return render_template('login.html')
+            flash('Wrong email or password')
+            return redirect(url_for('login'))
 
 @app.route('/logout', methods = ['GET', 'POST'])
 @login_required

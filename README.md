@@ -177,12 +177,7 @@ Description of meta-tags and any keyword research
     * GitHub is used for version control and as a repository for the code of the project.
 * [Gitpod](https://gitpod.io) 
     * Gitpod was the development environment for this site and linked to Github for storage and deployment.
-* [MacOS Preview](https://support.apple.com/guide/preview/welcome/mac)
-    * All screenshots were captured and edited with this program.
-* Balsamiq
-    * Used to develop and refine wireframe images in the planning stage of the project.
-* Cloudinary API Reference
-    * This was used to understand how to apply image transformations when uploading and storing images on their service.
+
 
 
 ## Testing

@@ -45,7 +45,7 @@ Screenshot of home page
 ### Strategy
 
 * Site Goals
-    * To enable users to find jobs
+    * To enable users search for jobs
 
 * User Goals
 

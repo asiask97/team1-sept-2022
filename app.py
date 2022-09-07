@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow, fields
 from flask_cors import CORS
@@ -53,6 +53,7 @@ class Jobs(db.Model):
     referenceNo = db.Column(db.String(200), nullable=False)
     description = db.Column(db.String(2000), nullable=False)
     salary = db.Column(db.Float)
+    location = db.Column(db.String(100), nullable=False)
     datetime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     parttime = db.Column(db.Boolean, default=False, nullable=False)
     fourday = db.Column(db.Boolean, default=False, nullable=False)
@@ -108,10 +109,15 @@ def login():
                 #login user
                 login_user(user)
                 return render_template('jobposts.html')
-            else:
-                return render_template('login.html')
         else:
-            return render_template('login.html')
+            flash('Wrong email or password')
+            return redirect(url_for('login'))
+
+@app.route('/logout', methods = ['GET', 'POST'])
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
 
 
 @app.route('/jobposts', methods = ['GET'])
@@ -122,12 +128,19 @@ def jobposts():
         user = Users.query.filter_by(id = job.created_by).first()
         created_by.append(user.name)
     if request.method == 'GET':
-        return render_template('jobposts.html', packed=zip(jobs, created_by))
+        return render_template('jobposts.html')
 
-# work in progess
 @app.route('/jobposts/delete/<int:id>', methods = ['POST'])
 def jobposts_delete(id):
     post_to_delte = Jobs.query.get(id)
+    try:
+        db.session.delete(post_to_delte)
+        db.session.commit()
+        # message that confirms deletion 
+        return render_template('jobposts.html')
+    except:
+        print('error handler')
+
 
 @app.route('/addjob', methods = ['GET','POST'])
 @login_required

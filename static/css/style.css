@@ -7,3 +7,23 @@
 #warning{
     margin-top: 1em;
 }
+#login_from h1{
+    margin-bottom: 1em;
+}
+
+/*---- REGISTER ----*/
+#register_form{
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+#register_form h1{
+    margin-bottom: 1em;
+}
+.signin{
+    margin-top: 1em;
+    padding-left: 0;
+}
+
+#register_form a{
+    color: rgb(255, 193, 7);
+}

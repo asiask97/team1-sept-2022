@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template, flash, redirect, url_for
+from flask import Flask, jsonify, request, render_template, flash, redirect, url_for, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow, fields
 from flask_cors import CORS
@@ -6,11 +6,15 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, log
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 import itertools
+import os
+
 
 app = Flask(__name__)
 CORS(app)
 app.config['SECRET_KEY'] = 'secrtekeyfornow'
-
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 # Add the database 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///development.db'
 

@@ -7,12 +7,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 import itertools
 
-
-
 app = Flask(__name__)
 CORS(app)
 app.config['SECRET_KEY'] = 'secrtekeyfornow'
-
 
 # Add the database 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///development.db'
@@ -53,12 +50,14 @@ class Jobs(db.Model):
     job_id = db.Column(db.Integer, primary_key = True)    
     created_by = db.Column(db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.String(200), nullable=False)
+    referenceNo = db.Column(db.String(200), nullable=False)
     description = db.Column(db.String(2000), nullable=False)
     salary = db.Column(db.Float)
     datetime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     parttime = db.Column(db.Boolean, default=False, nullable=False)
     fourday = db.Column(db.Boolean, default=False, nullable=False)
     childcare = db.Column(db.Boolean, default=False, nullable=False)
+
 
 class UsersShema(ma.SQLAlchemyAutoSchema):
     class Meta:
@@ -126,9 +125,9 @@ def jobposts():
         return render_template('jobposts.html', packed=zip(jobs, created_by))
 
 # work in progess
-#@app.route('/jobposts/delete/<int:id>', methods = ['POST'])
-#def jobposts_delete(id):
-#    post_to_delte = Jobs.query
+@app.route('/jobposts/delete/<int:id>', methods = ['POST'])
+def jobposts_delete(id):
+    post_to_delte = Jobs.query.get(id)
 
 @app.route('/addjob', methods = ['GET','POST'])
 @login_required
@@ -137,7 +136,6 @@ def addjob():
         return render_template('addjob.html')
 
     if request.method == 'POST':
-
         childcare = "childcare" in request.form
         parttime = "parttime" in request.form
         fourday = "fourday" in request.form
@@ -151,6 +149,19 @@ def addjob():
 
 
 # API 
+@app.route('/api-jobs/all', methods = ['GET'])
+def api_parttime():
+    if request.method == 'GET':   
+        jobs = Jobs.query.all()
+        for job in jobs:
+            user = Users.query.filter_by(id = job.created_by).first()
+            job.data = user.name
+    
+        job_schema = JobsShema()
+        output = job_schema.dump(jobs, many=True)
+        return jsonify({'jobs': output})
+
+"""
 @app.route('/api-jobs/parttime', methods = ['GET'])
 def api_parttime():
     if request.method == 'GET':   
@@ -167,7 +178,6 @@ def api_childcare():
         return findCorrectJobs('childcare')
 
 def findCorrectJobs(typeofbadge):
-    print(typeofbadge)
     kwargs = {typeofbadge : True}
     jobs = Jobs.query.filter_by(**kwargs)
     for job in jobs:
@@ -177,3 +187,4 @@ def findCorrectJobs(typeofbadge):
     job_schema = JobsShema()
     output = job_schema.dump(jobs, many=True)
     return jsonify({'jobs': output})
+"""

@@ -6,25 +6,25 @@
     <h1>Register</h1>
     <div class="mb-3">
       <label for="compnay" class="form-label">Compnay Name or Your Name</label>
-      <input type="text" class="form-control" id="compnay" aria-describedby="emailHelp">
+      <input type="text" class="form-control" name="compnay" id="compnay" aria-describedby="emailHelp" required>
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required>
     </div>
     <div class="mb-3">
       <label for="psw" class="form-label">Password</label>
-      <input type="password" class="form-control" id="psw">
+      <input type="password" class="form-control" id="psw" name="email" name="psw" required>
     </div>
     <div class="mb-3">
       <label for="psw-repeat" class="form-label">Repeat Password</label>
-      <input type="password" class="form-control" id="psw-repeat">
+      <input type="password" class="form-control" id="psw-repeat" name="psw-repeat" required>
     </div>
     <div class="mb-3 ">
-      <input type="radio" id="employee" name="userType" value="employee" checked>
+      <input type="radio" id="employee" name="userType" value="employee" name="employee" checked>
       <label for="employee">Employee</label>
     
-      <input type="radio" id="employer" name="userType" value="employer">
+      <input type="radio" id="employer" name="userType" value="employer" name="employer">
       <label for="employer">Employer</label>
     </div>
     <button type="submit" class="btn btn-warning">Submit</button>

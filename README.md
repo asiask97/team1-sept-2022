@@ -45,12 +45,10 @@ Screenshot of home page
 ### Strategy
 
 * Site Goals
-    * To enable users to buy interesting artwork for their own satisfaction
-    * To allow the site owner to manage the sale of the products effectively
-    * To have a pleasing and functional design
+    * To enable users to find jobs
 
 * User Goals
-The ideal user is interested in technology and art movements such as cyberpunk, retrofuturism and generative creativity.
+
 
 
 #### User Stories

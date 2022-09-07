@@ -1,10 +1,142 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% for job in jobs %}
-    <div>{{ job.title }}</div>
-    <div>{{ job.salary }}</div>
-    <div>{{ job.description}}</div>
-    <div>{{ job.created_by}}</div>
-    {% endfor %}
+  
+
+<div class="px-2 py-2 my-2 text-center">
+    <h1 class="display-5 fw-bold">View Jobs</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">
+        Here you can view available opportunities.</p>
+    </div>
+  </div>
+
+
+      <div class="card mb-3" >
+        <div class="row g-0 align-items-center">
+          <div class="col-md-2 bg-success rounded-pill">
+            <div class="card-body text-center ">
+                <h3 class="card-title text-white">Netflix</h3>
+                
+               
+              </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                
+              <h2 class="card-title">Devops</h2>
+              <p class="card-text">Dublin</p>
+              <p class="card-text">€60,000</p>
+              <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible Schedule</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Mentor Program</a>
+            </div>
+          </div>
+          <div class="col-md-2 text-center">
+            <a class="btn btn-lg btn-primary " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
+            <a class="btn btn-lg btn-warning my-2 " href="mailto:email@example.com?subject=Apply for job&body=Apply here" role="button">Apply</a>
+           
+          </div>
+        </div>
+      </div>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details 
+        </div>
+      </div>
+     
+      <div class="card mb-3" >
+        <div class="row g-0 align-items-center">
+          <div class="col-md-2 bg-success rounded-pill">
+            <div class="card-body text-center ">
+                <h3 class="card-title text-white">Microsoft</h3>
+                
+               
+              </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                
+              <h2 class="card-title">Product Manager</h2>
+              <p class="card-text">Dublin</p>
+              <p class="card-text">€60,000</p>
+              <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible Schedule</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Mentor Program</a>
+            </div>
+          </div>
+          <div class="col-md-2 text-center">
+            <a class="btn btn-lg btn-primary " data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
+            <a class="btn btn-lg btn-warning my-2 " href="mailto:email@example.com?subject=Apply for job&body=Apply here" role="button">Apply</a>
+           
+          </div>
+        </div>
+      </div>
+      <div class="collapse" id="collapseExample2">
+        <div class="card card-body">
+          Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details 
+        </div>
+      </div>
+
+
+      <div class="card mb-3" >
+        <div class="row g-0 align-items-center">
+          <div class="col-md-2 bg-success rounded-pill">
+            <div class="card-body text-center ">
+                <h3 class="card-title text-white">Google</h3>
+                
+               
+              </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                
+              <h2 class="card-title">Testing Engineer</h2>
+              <p class="card-text">Dublin</p>
+              <p class="card-text">€60,000</p>
+              <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible Schedule</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Mentor Program</a>
+            </div>
+          </div>
+          <div class="col-md-2 text-center">
+            <a class="btn btn-lg btn-primary " data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
+            <a class="btn btn-lg btn-warning my-2 " href="mailto:email@example.com?subject=Apply for job&body=Apply here" role="button">Apply</a>
+           
+          </div>
+        </div>
+      </div>
+      <div class="collapse" id="collapseExample3">
+        <div class="card card-body">
+          Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details 
+        </div>
+      </div>
+
+
+      <div class="card mb-3" >
+        <div class="row g-0 align-items-center">
+          <div class="col-md-2 bg-success rounded-pill">
+            <div class="card-body text-center ">
+                <h3 class="card-title text-white">Facebook</h3>
+                
+               
+              </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                
+              <h2 class="card-title">Software Engineer</h2>
+              <p class="card-text">Dublin</p>
+              <p class="card-text">€60,000</p>
+              <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible Schedule</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> <a class="btn btn-outline-dark rounded-pill" href="#" role="button">Mentor Program</a>
+            </div>
+          </div>
+          <div class="col-md-2 text-center">
+            <a class="btn btn-lg btn-primary " data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
+            <a class="btn btn-lg btn-warning my-2 " href="mailto:email@example.com?subject=Apply for job&body=Apply here" role="button">Apply</a>
+           
+          </div>
+        </div>
+      </div>
+      <div class="collapse" id="collapseExample4">
+        <div class="card card-body">
+          Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details Job details 
+        </div>
+      </div>
+      
+
 {% endblock %}

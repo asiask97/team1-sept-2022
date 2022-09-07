@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<<<<<<< HEAD
   
 
 <div class="px-2 py-2 my-2 text-center">
@@ -139,5 +140,16 @@
       </div>
       
       
+=======
+<div>
+    {% for job in jobs %}
+        <h2>{{ job.title }}</h2>
+        <p>{{ job.salary }}</p>
+        <p>{{ job.description}}</p>
+        <p>{{ job.username }}</p>
+        <p>{{ job.datetime }}</p>
+    {% endfor %}
+</div>
+>>>>>>> Change of data transfer from flask to frontend from json/api to flask render templates
 
 {% endblock %}

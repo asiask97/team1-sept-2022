@@ -50,8 +50,8 @@ class Jobs(db.Model):
     job_id = db.Column(db.Integer, primary_key = True)    
     created_by = db.Column(db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.String(200), nullable=False)
-    referenceNo = db.Column(db.String(200), nullable=False)
-    description = db.Column(db.String(2000), nullable=False)
+    referenceNo = db.Column(db.String(200))
+    description = db.Column(db.Text(), nullable=False)
     salary = db.Column(db.Float)
     location = db.Column(db.String(100), nullable=False)
     datetime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
@@ -85,16 +85,19 @@ def register():
             userType = 'employer'
         else:
             userType = 'employee'
-
+        print(request.form.get('psw'), request.form.get('psw-repeat'))
         if(request.form.get('psw') != request.form.get('psw-repeat')):
-            return 'Message that passwords need to match'
+            flash('Passwords did not match') 
+            return redirect(url_for('register'))
         elif(checkEmail):
-            return 'Message that emial exists'
+            flash('Email already exits') 
+            return redirect(url_for('register'))
         else: 
             hashed_password = generate_password_hash(request.form.get('psw'))
             user = Users(name = request.form.get('compnay'), email = request.form.get('email'), userType= userType, password_hash = hashed_password)
             db.session.add(user)
             db.session.commit()
+            flash('User registered. Plase login')
             return render_template('login.html') 
 
 @app.route('/login', methods = ['GET', 'POST'])
@@ -103,11 +106,13 @@ def login():
         return render_template('login.html')
 
     if request.method == 'POST':
+        print(request.form)
         user = Users.query.filter_by(email = request.form.get('email')).first()
         if(user):
             if(check_password_hash(user.password_hash, request.form.get('psw'))):
                 #login user
                 login_user(user)
+                flash('Hi '+ user.name + '! Thanks for trying to make a world more equal place')
                 return render_template('jobposts.html')
         else:
             flash('Wrong email or password')
@@ -123,12 +128,11 @@ def logout():
 @app.route('/jobposts', methods = ['GET'])
 def jobposts():
     jobs = Jobs.query.all()
-    created_by = []
     for job in jobs:
         user = Users.query.filter_by(id = job.created_by).first()
-        created_by.append(user.name)
+        job.username = user.name
     if request.method == 'GET':
-        return render_template('jobposts.html')
+        return render_template('jobposts.html', jobs=jobs)
 
 @app.route('/jobposts/delete/<int:id>', methods = ['POST'])
 def jobposts_delete(id):
@@ -155,15 +159,16 @@ def addjob():
         salary = 0.0
         if(request.form.get('salary')):
             salary = request.form.get('salary')
-        job = Jobs(title = request.form.get('title'), description = request.form.get('description'), salary = salary, created_by = current_user.id, parttime=parttime, fourday=fourday, childcare=childcare)
+        job = Jobs(title = request.form.get('title'), description = request.form.get('description'), location = request.form.get('location'), salary = salary, created_by = current_user.id, parttime=parttime, fourday=fourday, childcare=childcare)
         db.session.add(job)
         db.session.commit()
         return render_template('jobposts.html')
 
 
 # API 
+"""
 @app.route('/api-jobs/all', methods = ['GET'])
-def api_parttime():
+def api_partall():
     if request.method == 'GET':   
         jobs = Jobs.query.all()
         for job in jobs:
@@ -173,19 +178,19 @@ def api_parttime():
         job_schema = JobsShema()
         output = job_schema.dump(jobs, many=True)
         return jsonify({'jobs': output})
-
 """
-@app.route('/api-jobs/parttime', methods = ['GET'])
+
+@app.route('/jobposts/parttime', methods = ['GET'])
 def api_parttime():
     if request.method == 'GET':   
         return findCorrectJobs('parttime')
 
-@app.route('/api-jobs/fourday', methods = ['GET'])
+@app.route('/jobposts/fourday', methods = ['GET'])
 def api_fourday():
     if request.method == 'GET':   
         return findCorrectJobs('fourday')
 
-@app.route('/api-jobs/childcare', methods = ['GET'])
+@app.route('/jobposts/childcare', methods = ['GET'])
 def api_childcare():
     if request.method == 'GET': 
         return findCorrectJobs('childcare')
@@ -195,9 +200,6 @@ def findCorrectJobs(typeofbadge):
     jobs = Jobs.query.filter_by(**kwargs)
     for job in jobs:
         user = Users.query.filter_by(id = job.created_by).first()
-        job.data = user.name
-        print(job.data)
-    job_schema = JobsShema()
-    output = job_schema.dump(jobs, many=True)
-    return jsonify({'jobs': output})
-"""
+        job.username = user.name
+    return render_template('jobposts.html', jobs=jobs)
+

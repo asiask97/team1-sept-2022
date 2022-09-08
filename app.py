@@ -8,15 +8,22 @@ import uuid
 import datetime
 import itertools
 import os
+import re
 
 app = Flask(__name__)
 CORS(app)
-app.config['SECRET_KEY'] = 'secrtekeyfornow'
+app.config['SECRET_KEY'] = os.environ.ge("SECRET_KEY") 
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 # Add the database 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://lpfcvmghopakdl:60aff5c79941110337b934518f586fc933ccd8b02914f1bef11c1e42078ab395@ec2-44-206-214-233.compute-1.amazonaws.com:5432/db0u9j1s2dpu59'
+if os.environ.get("DEVELOPMENT") == True :
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.ge("DB_URL")
+else:
+    uri = os.environ.get("DATABASE_URL")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri  
 
 # folder for images 
 UPLOAD_FOLDER = 'static/images/'

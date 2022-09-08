@@ -64,7 +64,7 @@ class Jobs(db.Model):
     fourday = db.Column(db.Boolean, default=False, nullable=False)
     childcare = db.Column(db.Boolean, default=False, nullable=False)
 
-
+"""
 class UsersShema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Users
@@ -72,7 +72,7 @@ class UsersShema(ma.SQLAlchemyAutoSchema):
 class JobsShema(ma.SQLAlchemyAutoSchema):
     class Meta:
         fields = ("title", "datetime", "created_by","datetime","description","salary","data")
-
+"""
 @app.route('/', methods = ['GET'])
 def index():
     return render_template('home.html')
@@ -177,9 +177,7 @@ def search():
     queryterm = request.args.get('q')
     
     # jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
-    jobs = Jobs.query.filter(Jobs.title.like('%' + queryterm + '%'))
-    # posts = posts.order_by(Posts.title).all()
-    # jobs = jobs.query.order_by(Jobs.datetime.desc()).all()
+    jobs = Jobs.query.filter(Jobs.title.like('%' + queryterm + '%') | Jobs.description.like('%' + queryterm + '%') | Jobs.company.like('%' + queryterm + '%') )
     return render_template('searchresults.html', jobs=jobs, searchterm=queryterm)
 
 @app.route('/addjob', methods = ['GET','POST'])

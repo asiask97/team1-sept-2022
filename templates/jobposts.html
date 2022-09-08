@@ -29,7 +29,7 @@
             <div class="card-body">
                 
               <h2 class="card-title">{{job.title}}</h2>
-              <p class="card-text">Dublin</p>
+              <p class="card-text">{{job.location}}</p>
               <p class="card-text">€{{job.salary}}</p>
               {% if job.parttime %}
               <a class="btn btn-outline-dark rounded-pill" href="/badgeview/2" role="button">Partime</a>

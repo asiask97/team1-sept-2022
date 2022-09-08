@@ -64,9 +64,22 @@ class Jobs(db.Model):
     salary = db.Column(db.Float)
     location = db.Column(db.String(100), nullable=False)
     datetime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    # badge booleans
+    lgbt = db.Column(db.Boolean, default=False, nullable=False)
+    genderbalance = db.Column(db.Boolean, default=False, nullable=False)
+    insurance = db.Column(db.Boolean, default=False, nullable=False)
+    mentoring = db.Column(db.Boolean, default=False, nullable=False)
+    zero_harrassment = db.Column(db.Boolean, default=False, nullable=False)
+    no_pay_gap = db.Column(db.Boolean, default=False, nullable=False)
+    diverse_interview = db.Column(db.Boolean, default=False, nullable=False)
+    open_to_bootcamp = db.Column(db.Boolean, default=False, nullable=False)
+    open_to_career_gap = db.Column(db.Boolean, default=False, nullable=False)
     parttime = db.Column(db.Boolean, default=False, nullable=False)
     fourday = db.Column(db.Boolean, default=False, nullable=False)
     childcare = db.Column(db.Boolean, default=False, nullable=False)
+    remote_work = db.Column(db.Boolean, default=False, nullable=False)
+    experience_requirements = db.Column(db.Boolean, default=False, nullable=False)
+    flexible_hours = db.Column(db.Boolean, default=False, nullable=False)
 
 class Savedjobs(db.Model):
     savedjobs_id = db.Column(db.Integer, primary_key = True)   
@@ -158,14 +171,52 @@ def badgeview(id):
         job.username = user.name
 
     if id == 1:
+        jobs = Jobs.query.filter(Jobs.lgbt.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="LGBTQIA+ Friendly")
+    if id == 2:
+        jobs = Jobs.query.filter(Jobs.genderbalance.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Good gender balance in workplace")
+    if id == 3:
+        jobs = Jobs.query.filter(Jobs.insurance.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Family Health Insurance")
+    if id == 4:
+        jobs = Jobs.query.filter(Jobs.mentoring.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Mentor System")
+    if id == 5:
+        jobs = Jobs.query.filter(Jobs.zero_harrassment.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Zero-tolerance harrassment policy")
+    if id == 6:
+        jobs = Jobs.query.filter(Jobs.no_pay_gap.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="No pay gap")
+    if id == 7:
+        jobs = Jobs.query.filter(Jobs.diverse_interview.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Diverse Interview Panel")
+    if id == 8:
+        jobs = Jobs.query.filter(Jobs.open_to_bootcamp.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Open to bootcamp/conversion graduates")
+    if id == 9:
+        jobs = Jobs.query.filter(Jobs.open_to_career_gap.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Open to applicants with a career gap")
+    if id == 10:
+        jobs = Jobs.query.filter(Jobs.parttime.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Part-time schedule available")
+    if id == 11:
         jobs = Jobs.query.filter(Jobs.childcare.is_(True)).order_by(Jobs.datetime.desc())
         return render_template('badgeview.html', jobs=jobs, pagename="Childcare")
-    if id == 2:
-        jobs = Jobs.query.filter(Jobs.parttime.is_(True)).order_by(Jobs.datetime.desc())
-        return render_template('badgeview.html', jobs=jobs, pagename="Part time work")
-    if id == 3:
-        jobs = Jobs.query.filter(Jobs.fourday.is_(True)).order_by(Jobs.datetime.desc())
-        return render_template('badgeview.html', jobs=jobs, pagename="Four day week")
+    if id == 12:
+        jobs = Jobs.query.filter(Jobs.remote_work.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Remote work option")
+    if id == 13:
+        jobs = Jobs.query.filter(Jobs.childcare.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Childcare")
+    if id == 14:
+        jobs = Jobs.query.filter(Jobs.experience_requirements.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Realistic experience requirements")
+    if id == 15:
+        jobs = Jobs.query.filter(Jobs.flexible_hours.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Flexible hours")
+
+    
     if request.method == 'GET':
         return render_template('badgeview.html', jobs=jobs)
 
@@ -252,9 +303,23 @@ def addjob():
         return render_template('addjob.html')
 
     if request.method == 'POST':
-        childcare = "childcare" in request.form
+        
+
+        lgbt = "lgbt" in request.form
+        genderbalance = "genderbalance" in request.form
+        insurance = "insurance" in request.form
+        mentoring = "mentoring" in request.form
+        zero_harrassment = "zero_harrassment" in request.form
+        no_pay_gap = "no_pay_gap" in request.form
+        diverse_interview = "diverse_interview" in request.form
+        open_to_bootcamp = "open_to_bootcamp" in request.form
+        open_to_career_gap = "open_to_career_gap" in request.form
         parttime = "parttime" in request.form
         fourday = "fourday" in request.form
+        childcare = "childcare" in request.form
+        remote_work = "remote_work" in request.form
+        experience_requirements = "experience_requirements" in request.form
+        flexible_hours = "flexible_hours" in request.form
         
         salary = 0.0
         if(request.form.get('salary')):
@@ -271,9 +336,21 @@ def addjob():
                     company = request.form.get('company'), 
                     salary = salary, 
                     created_by = current_user.id, 
+                    lgbt=lgbt, 
+                    genderbalance=genderbalance, 
+                    insurance=insurance,
+                    mentoring=mentoring, 
+                    zero_harrassment=zero_harrassment, 
+                    no_pay_gap=no_pay_gap,
+                    diverse_interview=diverse_interview, 
+                    open_to_bootcamp=open_to_bootcamp, 
+                    open_to_career_gap=open_to_career_gap,
                     parttime=parttime, 
                     fourday=fourday, 
-                    childcare=childcare
+                    childcare=childcare,
+                    remote_work=remote_work, 
+                    experience_requirements=experience_requirements, 
+                    flexible_hours=flexible_hours
         )
 
         db.session.add(job)

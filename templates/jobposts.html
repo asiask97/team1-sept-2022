@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  
+
 <div class="jobposts">
   <div class="px-2 py-2 my-2 text-center">
     <h1 class="display-5 fw-bold">View Jobs</h1>
@@ -11,55 +11,169 @@
     </div>
   </div>
 
+  <div class="text-center">
+
+    <a class="btn btn-outline-primary btn-lg m-1 rounded-pill" href="/badgeview/1" role="button">LGBTQIA+ Friendly</a>
+  
+
+  
+    <a class="btn btn-outline-secondary btn-lg m-1 rounded-pill" href="/badgeview/2" role="button">Gender Balance</a>
+   
+
+
+    <a class="btn btn-outline-success btn-lg m-1 rounded-pill" href="/badgeview/3" role="button">Family Health Insurance</a>
+ 
+
+ 
+    <a class="btn btn-outline-danger btn-lg m-1 rounded-pill" href="/badgeview/4" role="button">Mentor Systen</a>
+ 
+
+
+    <a class="btn btn-outline-warning btn-lg m-1 rounded-pill" href="/badgeview/5" role="button">Zero-Tolerance for Harrassment</a>
+
+
+  
+    <a class="btn btn-outline-info btn-lg m-1 rounded-pill" href="/badgeview/6" role="button">No Pay Gap</a>
+   
+
+
+    <a class="btn btn-outline-dark btn-lg m-1 rounded-pill" href="/badgeview/7" role="button">Diverse Interview Panel</a>
+
+
+
+    <a class="btn btn-outline-primary btn-lg m-1 rounded-pill" href="/badgeview/8" role="button">Open To Bootcamp Grads</a>
+  
+
+  
+    <a class="btn btn-outline-success btn-lg m-1 rounded-pill" href="/badgeview/9" role="button">Open to Career Gaps</a>
+ 
+
+
+    <a class="btn btn-outline-danger btn-lg m-1 rounded-pill" href="/badgeview/10" role="button">Parttime</a>
+ 
+
+
+    <a class="btn btn-outline-warning btn-lg m-1 rounded-pill" href="/badgeview/11" role="button">Four Day Week</a>
+ 
+
+  
+    <a class="btn btn-outline-info btn-lg m-1 rounded-pill" href="/badgeview/12" role="button">Childcare</a>
+
+
+
+    <a class="btn btn-outline-dark btn-lg m-1 rounded-pill" href="/badgeview/13" role="button">Remote Work</a>
+ 
+
+
+    <a class="btn btn-outline-primary btn-lg m-1 rounded-pill" href="/badgeview/14" role="button">Realistic Experience Requirements</a>
+
+
+    <a class="btn btn-outline-success btn-lg m-1 rounded-pill" href="/badgeview/15" role="button">Flexible Hours</a>
+
+  </div>
+
   {% for job in jobs %}
 
-      <div class="card mb-3 jobItem" >
-        <div class="row g-0 align-items-center">
-          <div class="col-md-2 bg-success rounded-pill">
-            <div class="card-body text-center ">
-                <h3 class="card-title text-white">{{job.company}}</h3>
-                
-               
-              </div>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-                
-              <h2 class="card-title">{{job.title}}</h2>
-              <p class="card-text">{{job.location}}</p>
-              <p class="card-text">€{{job.salary}}</p>
-              {% if job.parttime %}
-              <a class="btn btn-outline-dark rounded-pill" href="/badgeview/2" role="button">Partime</a>
+  <div class="card mb-3 jobItem">
+    <div class="row g-0 align-items-center">
+      <div class="col-md-2 bg-success rounded-pill">
+        <div class="card-body text-center ">
+          <h3 class="card-title text-white">{{job.company}}</h3>
+
+
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+
+          <h2 class="card-title">{{job.title}}</h2>
+          <p class="card-text">{{job.location}}</p>
+          <p class="card-text">€{{job.salary}}</p>
+
+          
+          {% if job.lgbt %}
+          <a class="btn btn-outline-primary rounded-pill" href="/badgeview/1" role="button">LGBTQIA+ Friendly</a>
+          {% endif %}
+
+          {% if job.genderbalance %}
+          <a class="btn btn-outline-secondary rounded-pill" href="/badgeview/2" role="button">Gender Balance</a>
+          {% endif %}
+
+          {% if job.insurance %}
+          <a class="btn btn-outline-success rounded-pill" href="/badgeview/3" role="button">Family Health Insurance</a>
+          {% endif %}
+
+          {% if job.mentoring %}
+          <a class="btn btn-outline-danger rounded-pill" href="/badgeview/4" role="button">Mentor Systen</a>
+          {% endif %}
+
+          {% if job.zero_harrassment %}
+          <a class="btn btn-outline-warning rounded-pill" href="/badgeview/5" role="button">Zero-Tolerance for Harrassment</a>
+          {% endif %}
+
+          {% if job.no_pay_gap %}
+          <a class="btn btn-outline-info rounded-pill" href="/badgeview/6" role="button">No Pay Gap</a>
+          {% endif %}
+
+          {% if job.diverse_interview %}
+          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/7" role="button">Diverse Interview Panel</a>
+          {% endif %}
+
+          {% if job.open_to_bootcamp %}
+          <a class="btn btn-outline-primary rounded-pill" href="/badgeview/8" role="button">Open To Bootcamp Grads</a>
+          {% endif %}
+
+          {% if job.open_to_career_gap %}
+          <a class="btn btn-outline-success rounded-pill" href="/badgeview/9" role="button">Open to Career Gaps</a>
+          {% endif %}
+
+          {% if job.parttime %}
+          <a class="btn btn-outline-danger rounded-pill" href="/badgeview/10" role="button">Parttime</a>
           {% endif %}
 
           {% if job.fourday %}
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/3" role="button">Four Day</a>
-      {% endif %}
+          <a class="btn btn-outline-warning rounded-pill" href="/badgeview/11" role="button">Four Day Week</a>
+          {% endif %}
 
-      {% if job.childcare %}
-      <a class="btn btn-outline-dark rounded-pill" href="/badgeview/1" role="button">Childcare</a>
-  {% endif %}
+          {% if job.childcare %}
+          <a class="btn btn-outline-info rounded-pill" href="/badgeview/12" role="button">Childcare</a>
+          {% endif %}
 
-             
-            </div>
-          </div>
-          <div class="col-md-2 text-center">
-            <a class="btn btn-lg btn-primary " data-bs-toggle="collapse" href="#collapseExample-{{loop.index}}" role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
-            <a class="btn btn-lg btn-warning my-2 " href="mailto:email@example.com?subject=Apply for {{job.title}} at {{job.company}} - Reference: {{job.referenceNo}}&body=Please fill out your application details here and attach your CV" role="button">Apply</a>
-            <a class="btn btn-lg btn-danger my-2 " href="" role="button">Delete</a> 
-            {% if current_user.is_authenticated %}
-              <button class="btn btn-lg btn-secondary save_job {{job.job_id}}">{{ job.saved }}</button>
-            {% endif %}
-          </div>
+          {% if job.remote_work %}
+          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/13" role="button">Remote Work</a>
+          {% endif %}
+
+          {% if job.experience_requirements %}
+          <a class="btn btn-outline-primary rounded-pill" href="/badgeview/14" role="button">Realistic Experience Requirements</a>
+          {% endif %}
+
+          {% if job.flexible_hours %}
+          <a class="btn btn-outline-success rounded-pill" href="/badgeview/15" role="button">Flexible Hours</a>
+          {% endif %}
+
+
         </div>
       </div>
-      <div class="collapse" id="collapseExample-{{loop.index}}">
-        <div class="card card-body">
-         {{job.description}}
-        </div>
+      <div class="col-md-2 text-center">
+        <a class="btn btn-lg btn-primary " data-bs-toggle="collapse" href="#collapseExample-{{loop.index}}"
+          role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
+        <a class="btn btn-lg btn-warning my-2 "
+          href="mailto:email@example.com?subject=Apply for {{job.title}} at {{job.company}} - Reference: {{job.referenceNo}}&body=Please fill out your application details here and attach your CV"
+          role="button">Apply</a>
+        <a class="btn btn-lg btn-danger my-2 " href="" role="button">Delete</a>
+        {% if current_user.is_authenticated %}
+        <button class="btn btn-lg btn-secondary save_job {{job.job_id}}">{{ job.saved }}</button>
+        {% endif %}
       </div>
+    </div>
+  </div>
+  <div class="collapse" id="collapseExample-{{loop.index}}">
+    <div class="card card-body">
+      {{job.description}}
+    </div>
+  </div>
 
-      {% endfor %}
+  {% endfor %}
 
 </div>
 

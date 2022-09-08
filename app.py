@@ -224,16 +224,20 @@ def badgeview(id):
     if request.method == 'GET':
         return render_template('badgeview.html', jobs=jobs)
 
-@app.route('/jobposts/delete/<int:id>', methods = ['POST'])
+@app.route('/jobposts/delete/<int:id>', methods = ['GET'])
 @login_required
 def jobposts_delete(id):
     post_to_delete = Jobs.query.get(id)
     user = Users.query.filter_by(id = post_to_delete.created_by).first()
+    # db.session.delete(post_to_delete)
+    # db.session.commit()
+    # flash('Job post has been deleted.')
+    # return redirect(url_for('jobposts')) 
     if(user.id == current_user.id):
         db.session.delete(post_to_delete)
         db.session.commit()
         flash('Job post has been deleted.')
-        return render_template('jobposts.html')
+        return redirect(url_for('jobposts')) 
     else:
         flash('Ooops! Something went wrong.')
         return redirect(url_for('jobposts')) 

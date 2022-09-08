@@ -1,43 +1,42 @@
 {% extends "base.html" %} {% block content %}
-<!-- <div
-  class="background-image-container white-text-container"
-  style="background-image: url('static/assets/images/img-05.jpg')"
->
-  <div class="overlay"></div>
-  <div class="container">
-    <div class="row">
-      <div class="">
-        <h1>The Factory</h1>
-        <p class="">THE BEST PLACE FOR WORK TOGETHER</p>
-        <a href="" class="btn btn-primary btn-lg" title="">Get in touch</a>
-      </div>
-    </div>
-  </div>
-</div> -->
 
-<div class="p-5 my-4 bg-light rounded-3" style="background-image: url('static/assets/images/img-05.jpg')">
-  <div class="container-fluid py-5" >
+<div class="p-5 bg-light rounded-3 section-bg">
+  <div class="container-fluid py-5">
     <h1 class="display-5 fw-bold">Equality Works!</h1>
-    <p class="col-md-8 fs-4 text-white">Here you can find jobs that cater to you.</p>
-    
+    <p class="col-md-8 fs-4 text-white">
+      Here you can find jobs that cater to you.
+    </p>
+
     <a
-    href="{{ url_for('jobposts') }}"
-    class="btn btn-primary btn-lg"
-    role="button"
-    >View Jobs Now</a
-  >
+      href="{{ url_for('jobposts') }}"
+      class="btn btn-primary btn-lg"
+      role="button"
+      >View Jobs Now</a
+    >
   </div>
 </div>
 
-<div class="container  px-4 py-5">
-  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+<div class="container px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5">
     <div class="col-10 col-sm-8 col-lg-6">
-      <img src="../static/assets/images/img-01.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      <img
+        src="../static/assets/images/img-01.jpg"
+        class="d-block mx-lg-auto img-fluid"
+        alt="Bootstrap Themes"
+        width="700"
+        height="500"
+        loading="lazy"
+      />
     </div>
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold lh-1 mb-3">What we do</h1>
-      <p class="lead">Explanation and overview of what we do at this site, our rationale and methods and aims. Explanation and overview of what we do at this site, our rationale and methods and aims. Explanation and overview of what we do at this site, our rationale and methods and aims. Explanation and overview of what we do at this site, our rationale and methods and aims</p>
-    
+      <p class="lead">
+        Explanation and overview of what we do at this site, our rationale and
+        methods and aims. Explanation and overview of what we do at this site,
+        our rationale and methods and aims. Explanation and overview of what we
+        do at this site, our rationale and methods and aims. Explanation and
+        overview of what we do at this site, our rationale and methods and aims
+      </p>
     </div>
   </div>
 </div>
@@ -45,221 +44,203 @@
 <div class="container px-4 py-5" id="icon-grid">
   <h2 class="pb-2 border-bottom">Badges List</h2>
 
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+  <div
+    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5"
+  >
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >Childcare</a
+          >
+        </h4>
         <p>After-work childcare available.</p>
       </div>
     </div>
-   
+
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >Flexible</a
+          >
+        </h4>
         <p>Flexible schedule</p>
       </div>
     </div>
 
-
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Remote</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >Remote</a
+          >
+        </h4>
         <p>Remote work available.</p>
       </div>
     </div>
 
-
-
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >LGBTQIA+</a
+          >
+        </h4>
         <p>Friendly to LGBTQIA+.</p>
       </div>
     </div>
 
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >Childcare</a
+          >
+        </h4>
         <p>After-work childcare available.</p>
       </div>
     </div>
-   
+
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >Flexible</a
+          >
+        </h4>
         <p>Flexible schedule</p>
       </div>
     </div>
 
-
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Remote</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >Remote</a
+          >
+        </h4>
         <p>Remote work available.</p>
       </div>
     </div>
 
-
-
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >LGBTQIA+</a
+          >
+        </h4>
         <p>Friendly to LGBTQIA+.</p>
       </div>
     </div>
 
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >Childcare</a
+          >
+        </h4>
         <p>After-work childcare available.</p>
       </div>
     </div>
-   
+
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >Flexible</a
+          >
+        </h4>
         <p>Flexible schedule</p>
       </div>
     </div>
 
-
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Remote</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >Remote</a
+          >
+        </h4>
         <p>Remote work available.</p>
       </div>
     </div>
 
-
-
     <div class="col d-flex align-items-start">
-      
       <div>
-        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> </h4>
+        <h4 class="fw-bold mb-0">
+          <a class="btn btn-outline-dark rounded-pill" href="#" role="button"
+            >LGBTQIA+</a
+          >
+        </h4>
         <p>Friendly to LGBTQIA+.</p>
       </div>
     </div>
-
-    
-
-
   </div>
 </div>
-
 
 <div class="container my-5">
-  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+  <div
+    class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
+  >
     <div class="p-3 p-lg-5 pt-lg-3 text-center">
       <h1 class="display-5 lh-1">Salary Calculator</h1>
-      <p class="lead">Find out here how much you could make in a tech job! Calculator goes here.</p>
+      <p class="lead">
+        Find out here how much you could make in a tech job! Calculator goes
+        here.
+      </p>
       <div class="">
-        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Calculate</button>
-       
-      </div>
-    </div>
-   
-  </div>
-</div>
-
-<div class="section-container">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-12 section-container-spacer">
-        <h2 class="text-center">Vivamus laoreet</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-4">
-        <div class="fa-container">
-          <i class="fa fa-comment-o fa-3x" aria-hidden="true"></i>
-        </div>
-        <h3 class="text-center">Consectetur</h3>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident.
-        </p>
-      </div>
-
-      <div class="col-xs-12 col-md-4">
-        <div class="fa-container">
-          <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
-        </div>
-        <h3 class="text-center">Malesuada</h3>
-        <p>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <div class="fa-container">
-          <i class="fa fa-bell-o fa-3x" aria-hidden="true"></i>
-        </div>
-        <h3 class="text-center">Phasellus</h3>
-        <p>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
-        </p>
+        <button
+          type="button"
+          class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+        >
+          Calculate
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="section-container section-half-background-image-container">
-  <div
-    class="image-column"
-    style="background-image: url('static/assets/images/img-01.jpg')"
-  ></div>
-  <div class="container">
-    <div class="row">
-      <div class="section-label reveal">
-        <p>Coworking</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-12 section-container-spacer">
+      <h2 class="text-center">Our Mission</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <div class="fa-container">
+        <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
       </div>
-      <div class="col-md-6 col-md-offset-6 text-column">
-        <h2>Dui augue orci</h2>
-        <h3>Lorem ipsum</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet
-          consectetur dolor. Phasellus ut lacus tellus. In pretium lobortis
-          blandit. Nam eu laoreet velit. Vivamus laoreet, sem nec scelerisque
-          elementum, dui augue aliquet urna, ut bibendum purus erat ut massa.
-          Mauris diam orci, feugiat a turpis et, congue accumsan risus. Nulla
-          malesuada leo sodales, auctor augue quis, condimentum lacus. Phasellus
-          sed sollicitudin quam, a bibendum urna.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet
-          consectetur dolor. Phasellus « ut lacus » tellus. In pretium lobortis
-          blandit.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet
-          consectetur dolor. Phasellus ut lacus tellus. In pretium lobortis
-          blandit.
-        </p>
+      <h3 class="text-center">We Care</h3>
+      <p>
+        At Equality Works, we care about you! We make the job search process as
+        easy as it can be! And it all aim to suit your needs.
+      </p>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <div class="fa-container">
+        <i class="fa fa-bell-o fa-3x" aria-hidden="true"></i>
       </div>
+      <h3 class="text-center">We Listen</h3>
+      <p>
+        At Equality Works, we listen to you! Whatever concerns you have about
+        job searching, we will try to find a way to facilitate!
+      </p>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <div class="fa-container">
+        <i class="fa fa-comment-o fa-3x" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-center">We guide</h3>
+      <p>
+        At Equality Works, we provide guidance, we share industry insight, we
+        deliver mentorship!
+      </p>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 {% endblock %}

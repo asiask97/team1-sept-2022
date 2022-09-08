@@ -2,8 +2,8 @@
 
 {% block content %}
   
-
-<div class="px-2 py-2 my-2 text-center">
+<div class="jobposts">
+  <div class="px-2 py-2 my-2 text-center">
     <h1 class="display-5 fw-bold">View Jobs</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">
@@ -12,9 +12,6 @@
   </div>
 
   {% for job in jobs %}
-
- 
-
 
       <div class="card mb-3 jobItem" >
         <div class="row g-0 align-items-center">
@@ -60,8 +57,7 @@
       </div>
 
       {% endfor %}
-     
-      
-      
+
+</div>
 
 {% endblock %}

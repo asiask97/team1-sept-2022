@@ -4,7 +4,6 @@ from flask_marshmallow import Marshmallow, fields
 from flask_cors import CORS
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.utils import secure_filename
 import uuid
 import datetime
 import itertools
@@ -69,19 +68,9 @@ class Jobs(db.Model):
     fourday = db.Column(db.Boolean, default=False, nullable=False)
     childcare = db.Column(db.Boolean, default=False, nullable=False)
 
-"""
-class UsersShema(ma.SQLAlchemyAutoSchema):
-    class Meta:
-        model = Users
-
-class JobsShema(ma.SQLAlchemyAutoSchema):
-    class Meta:
-        fields = ("title", "datetime", "created_by","datetime","description","salary","data")
-"""
 @app.route('/', methods = ['GET'])
 def index():
     return render_template('home.html')
-
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
@@ -107,8 +96,9 @@ def register():
             user = Users(name = request.form.get('compnay'), email = request.form.get('email'), userType= userType, password_hash = hashed_password)
             db.session.add(user)
             db.session.commit()
-            flash('User registered. Plase login')
-            return render_template('login.html') 
+            flash('User registered.')
+            login_user(user)
+            return redirect(url_for('index'))
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
@@ -123,7 +113,7 @@ def login():
                 #login user
                 login_user(user)
                 flash('Hi '+ user.name + '! Thanks for trying to make a world more equal place')
-                return redirect(url_for('jobposts'))
+                return redirect(url_for('index'))
             else:
                 flash('Wrong email or password')
                 return redirect(url_for('login'))
@@ -136,7 +126,6 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('login'))
-
 
 @app.route('/jobposts', methods = ['GET'])
 def jobposts():
@@ -190,9 +179,7 @@ def deleteuser():
             db.session.delete(job)
         db.session.commit()
         logout_user()
-        return redirect(url_for('index'))
-        
-    
+        return redirect(url_for('index')) 
 
 @app.route('/profile', methods = ['GET', 'POST'])
 @login_required
@@ -259,8 +246,6 @@ def addjob():
         if(request.form.get('refnum')):
             referenceNo = request.form.get('refnum')
 
-
-
         job = Jobs( title = request.form.get('title'), 
                     referenceNo = referenceNo, 
                     description = request.form.get('discription'), 
@@ -277,22 +262,6 @@ def addjob():
         db.session.commit()
         flash('Your job was posted.')
         return redirect(url_for('jobposts'))
-
-
-# API 
-"""
-@app.route('/api-jobs/all', methods = ['GET'])
-def api_partall():
-    if request.method == 'GET':   
-        jobs = Jobs.query.all()
-        for job in jobs:
-            user = Users.query.filter_by(id = job.created_by).first()
-            job.data = user.name
-    
-        job_schema = JobsShema()
-        output = job_schema.dump(jobs, many=True)
-        return jsonify({'jobs': output})
-"""
 
 @app.route('/jobposts/parttime', methods = ['GET'])
 def api_parttime():

@@ -16,7 +16,9 @@ app.config['SECRET_KEY'] = 'secrtekeyfornow'
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 # Add the database 
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://lpfcvmghopakdl:60aff5c79941110337b934518f586fc933ccd8b02914f1bef11c1e42078ab395@ec2-44-206-214-233.compute-1.amazonaws.com:5432/db0u9j1s2dpu59'
+
 
 # folder for images 
 UPLOAD_FOLDER = 'static/images/'

@@ -46,7 +46,10 @@
           <div class="col-md-2 text-center">
             <a class="btn btn-lg btn-primary " data-bs-toggle="collapse" href="#collapseExample-{{loop.index}}" role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
             <a class="btn btn-lg btn-warning my-2 " href="mailto:email@example.com?subject=Apply for {{job.title}} at {{job.company}} - Reference: {{job.referenceNo}}&body=Please fill out your application details here and attach your CV" role="button">Apply</a>
-            <!-- <a class="btn btn-lg btn-danger my-2 " href="" role="button">Delete</a> -->
+            <a class="btn btn-lg btn-danger my-2 " href="" role="button">Delete</a> 
+            {% if current_user.is_authenticated %}
+              <button class="btn btn-lg btn-secondary save_job {{job.job_id}}">{{ job.saved }}</button>
+            {% endif %}
           </div>
         </div>
       </div>

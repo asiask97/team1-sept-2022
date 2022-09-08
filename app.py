@@ -68,6 +68,11 @@ class Jobs(db.Model):
     fourday = db.Column(db.Boolean, default=False, nullable=False)
     childcare = db.Column(db.Boolean, default=False, nullable=False)
 
+class Savedjobs(db.Model):
+    savedjobs_id = db.Column(db.Integer, primary_key = True)   
+    job_id = db.Column(db.Integer, db.ForeignKey('jobs.job_id')) 
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    
 @app.route('/', methods = ['GET'])
 def index():
     return render_template('home.html')
@@ -128,12 +133,20 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/jobposts', methods = ['GET'])
-def jobposts():
-    jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
-    for job in jobs:
-        user = Users.query.filter_by(id = job.created_by).first()
-        job.username = user.name
+def jobposts():   
     if request.method == 'GET':
+        jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
+        for job in jobs:
+            user = Users.query.filter_by(id = job.created_by).first()
+            job.username = user.name
+            if(current_user.is_authenticated):
+                savedjobs = Savedjobs.query.filter_by(job_id = job.job_id, user_id = current_user.id).first()
+                if(savedjobs):
+                    job.saved = 'Remove'
+                else:
+                    job.saved = 'Save Job'
+
+
         return render_template('jobposts.html', jobs=jobs)
 
 @app.route('/badgeview/<int:id>', methods = ['GET'])
@@ -174,9 +187,14 @@ def deleteuser():
         user = Users.query.filter_by(id = current_user.id).first()
         db.session.delete(user)
         
+        saved_by_user = Savedjobs.query.filter_by(user_id = current_user.id)
+        for job in saved_by_user:
+            db.session.delete(job)
+
         jobs_by_user = Jobs.query.filter_by(created_by = current_user.id)
         for job in jobs_by_user:
             db.session.delete(job)
+            
         db.session.commit()
         logout_user()
         return redirect(url_for('index')) 
@@ -263,18 +281,44 @@ def addjob():
         flash('Your job was posted.')
         return redirect(url_for('jobposts'))
 
+@app.route('/jobposts/saved', methods = ['GET', 'POST'])
+@login_required
+def saved():
+    if request.method == 'GET': 
+        saved = Savedjobs.query.filter_by(user_id = current_user.id)
+        jobs=[]
+        for item in saved:
+            job = Jobs.query.filter_by(job_id = item.job_id).first()
+            user = Users.query.filter_by(id = job.created_by).first()
+            job.username = user.name
+            job.saved = 'Remove'   
+            jobs.append(job)
+        return render_template('jobposts.html', jobs=jobs)
+      
+    if request.method == 'POST': 
+        if(request.args.get('option')=='add'):
+            savedjobs = Savedjobs( job_id = int(request.args.get('id')), user_id = current_user.id)
+            db.session.add(savedjobs)
+
+        elif(request.args.get('option')=='remove'):
+            savedjobs = Savedjobs.query.filter_by(job_id = int(request.args.get('id')), user_id = current_user.id).first()
+            db.session.delete(savedjobs)
+
+        db.session.commit()
+        return ('', 204)
+
 @app.route('/jobposts/parttime', methods = ['GET'])
-def api_parttime():
+def parttime():
     if request.method == 'GET':   
         return findCorrectJobs('parttime')
 
 @app.route('/jobposts/fourday', methods = ['GET'])
-def api_fourday():
+def fourday():
     if request.method == 'GET':   
         return findCorrectJobs('fourday')
 
 @app.route('/jobposts/childcare', methods = ['GET'])
-def api_childcare():
+def childcare():
     if request.method == 'GET': 
         return findCorrectJobs('childcare')
 

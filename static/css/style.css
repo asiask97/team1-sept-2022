@@ -100,3 +100,58 @@ h2.text-center:after {
     margin-top: 1.2em;
   }
 }
+
+.btn-childcare {
+  background-color: #DC0430;
+  color: #FFFFFF;
+}
+.btn-lgbtqia {
+  background-color: #FC4A6E;
+  color: #FFFFFF;
+}
+.btn-remote {
+  background-color: #FE9523;
+}
+.btn-flexible {
+  background-color: #FFCC30;
+}
+.btn-insurance {
+  background-color: #53D969;
+  color: #FFFFFF;
+}
+.btn-mentor {
+  background-color: #3DAADC;
+  color: #FFFFFF;
+}
+.btn-zero-tolerance {
+  background-color: #167EFC;
+  color: #FFFFFF;
+}
+.btn-no-pay-gap {
+  background-color: #3DAADC;
+  color: #FFFFFF;
+}
+.btn-diverse-panel {
+  background-color: #585CD2;
+  color: #FFFFFF;
+}
+.btn-bootcamp {
+  background-color: #afdd32;
+  color: #FFFFFF;
+}
+.btn-career-gap {
+  background-color: #9E2D7B;
+  color: #FFFFFF;
+}
+.btn-parttime {
+  background-color: #d87ebdc6;
+  color: #FFFFFF;
+}
+.btn-four-day {
+  background-color: #9ae19c55;
+  color: #FFFFFF;
+}
+.btn-realistic-experience {
+  background-color: #08f4cd;
+  color: #FFFFFF;
+}

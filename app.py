@@ -12,7 +12,7 @@ import re
 
 app = Flask(__name__)
 CORS(app)
-app.config['SECRET_KEY'] = os.environ.ge("SECRET_KEY") 
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY") 
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')

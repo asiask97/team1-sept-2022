@@ -38,6 +38,16 @@
 .jobItem{
   margin-top: 1em;
 }
+
+/*---- PROFILE ----*/
+#profile_form{
+  margin-top: 20vh;
+  margin-bottom: 2em;
+}
+#profile_delete{
+  margin-bottom: 20vh;
+}
+
 /*---- Home Page ----*/
 .section-bg {
   background-image: url("../assets/images/img-02.jpg");

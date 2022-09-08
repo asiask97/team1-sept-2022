@@ -178,6 +178,22 @@ def jobposts_delete(id):
     except:
         print('error handler')
 
+@app.route('/deleteuser', methods = ['POST'])
+@login_required
+def deleteuser():
+    if request.method == 'POST':
+        user = Users.query.filter_by(id = current_user.id).first()
+        db.session.delete(user)
+        
+        jobs_by_user = Jobs.query.filter_by(created_by = current_user.id)
+        for job in jobs_by_user:
+            db.session.delete(job)
+        db.session.commit()
+        logout_user()
+        return redirect(url_for('index'))
+        
+    
+
 @app.route('/profile', methods = ['GET', 'POST'])
 @login_required
 def profile():

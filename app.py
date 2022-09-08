@@ -221,15 +221,18 @@ def badgeview(id):
         return render_template('badgeview.html', jobs=jobs)
 
 @app.route('/jobposts/delete/<int:id>', methods = ['POST'])
+@login_required
 def jobposts_delete(id):
-    post_to_delte = Jobs.query.get(id)
-    try:
-        db.session.delete(post_to_delte)
+    post_to_delete = Jobs.query.get(id)
+    user = Users.query.filter_by(id = post_to_delete.created_by).first()
+    if(user.id == current_user.id):
+        db.session.delete(post_to_delete)
         db.session.commit()
-        # message that confirms deletion 
+        flash('Job post has been deleted.')
         return render_template('jobposts.html')
-    except:
-        print('error handler')
+    else:
+        flash('Ooops! Something went wrong.')
+        return redirect(url_for('jobposts')) 
 
 @app.route('/deleteuser', methods = ['POST'])
 @login_required
@@ -292,7 +295,6 @@ def profile():
 @app.route('/search')
 def search():
     queryterm = request.args.get('q')
-    # jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
     jobs = Jobs.query.filter(Jobs.title.like('%' + queryterm + '%') | Jobs.description.like('%' + queryterm + '%') | Jobs.company.like('%' + queryterm + '%') | Jobs.location.like('%' + queryterm + '%'))
     return render_template('searchresults.html', jobs=jobs, searchterm=queryterm)
 
@@ -383,27 +385,3 @@ def saved():
 
         db.session.commit()
         return ('', 204)
-
-@app.route('/jobposts/parttime', methods = ['GET'])
-def parttime():
-    if request.method == 'GET':   
-        return findCorrectJobs('parttime')
-
-@app.route('/jobposts/fourday', methods = ['GET'])
-def fourday():
-    if request.method == 'GET':   
-        return findCorrectJobs('fourday')
-
-@app.route('/jobposts/childcare', methods = ['GET'])
-def childcare():
-    if request.method == 'GET': 
-        return findCorrectJobs('childcare')
-
-def findCorrectJobs(typeofbadge):
-    kwargs = {typeofbadge : True}
-    jobs = Jobs.query.filter_by(**kwargs)
-    for job in jobs:
-        user = Users.query.filter_by(id = job.created_by).first()
-        job.username = user.name
-    return render_template('jobposts.html', jobs=jobs)
-

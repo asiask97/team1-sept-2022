@@ -10,6 +10,10 @@ import itertools
 import os
 import re
 
+if os.path.exists("env.py"):
+    import env
+
+
 app = Flask(__name__)
 CORS(app)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY") 
@@ -18,7 +22,7 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 # Add the database 
 if os.environ.get("DEVELOPMENT") == True :
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.ge("DB_URL")
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URL")
 else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
@@ -100,6 +104,11 @@ def index():
 @app.route('/resources', methods = ['GET'])
 def resources():
     return render_template('resources.html')
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():

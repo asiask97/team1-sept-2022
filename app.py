@@ -4,10 +4,11 @@ from flask_marshmallow import Marshmallow, fields
 from flask_cors import CORS
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
+import uuid
 import datetime
 import itertools
 import os
-
 
 app = Flask(__name__)
 CORS(app)
@@ -17,6 +18,10 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 # Add the database 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///development.db'
+
+# folder for images 
+UPLOAD_FOLDER = 'static/images/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Initialize the database 
 db = SQLAlchemy(app)
@@ -38,7 +43,7 @@ class Users(db.Model, UserMixin):
     email = db.Column(db.String(120), nullable=False, unique=True)
     password_hash = db.Column(db.String(150), nullable=False)
     userType = db.Column(db.String(100), nullable=False)
-    
+
     @property
     def password(self):
         raise AttributeError('Password not readable.')
@@ -119,6 +124,9 @@ def login():
                 login_user(user)
                 flash('Hi '+ user.name + '! Thanks for trying to make a world more equal place')
                 return redirect(url_for('jobposts'))
+            else:
+                flash('Wrong email or password')
+                return redirect(url_for('login'))
         else:
             flash('Wrong email or password')
             return redirect(url_for('login'))
@@ -170,14 +178,50 @@ def jobposts_delete(id):
     except:
         print('error handler')
 
+@app.route('/profile', methods = ['GET', 'POST'])
+@login_required
+def profile():
+    if request.method == 'GET':
+        return render_template('profile.html', user = current_user)
+
+    if request.method == 'POST':
+        user = Users.query.filter_by(id = current_user.id).first()
+        message = ''
+
+        if(request.form.get('psw') and request.form.get('psw-repeat')):
+            if(request.form.get('psw') == request.form.get('psw-repeat')):   
+                hashed_password = generate_password_hash(request.form.get('psw'))
+                user.password_hash = hashed_password
+                db.session.commit()
+                message += ' Password Updated.'
+       
+        if(request.form.get('name')):
+            if(request.form.get('name') != user.name):
+                user.name = request.form.get('name')
+                db.session.commit()
+                message += ' Name Updated.'
+        
+        checkEmail = Users.query.filter_by(email = request.form.get('email')).first()
+        if(request.form.get('email')):
+            if(checkEmail):
+                # emial exists
+                if(request.form.get('email') != user.email):
+                    message += ' Email NOT Updated. The email you choose is already taken.'
+            else:
+                user.email = request.form.get('email')
+                db.session.commit()
+                message += ' Email Updated.'
+        
+        if(message == ''):
+            message = 'No changes were made.'
+        flash(message)
+        return render_template('profile.html', user = current_user)
 
 @app.route('/search')
 def search():
-    
     queryterm = request.args.get('q')
-    
     # jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
-    jobs = Jobs.query.filter(Jobs.title.like('%' + queryterm + '%') | Jobs.description.like('%' + queryterm + '%') | Jobs.company.like('%' + queryterm + '%') )
+    jobs = Jobs.query.filter(Jobs.title.like('%' + queryterm + '%') | Jobs.description.like('%' + queryterm + '%') | Jobs.company.like('%' + queryterm + '%') | Jobs.location.like('%' + queryterm + '%'))
     return render_template('searchresults.html', jobs=jobs, searchterm=queryterm)
 
 @app.route('/addjob', methods = ['GET','POST'])

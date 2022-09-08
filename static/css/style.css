@@ -34,6 +34,10 @@
   margin-bottom: 10vh;
 }
 
+/*---- VIEW JOB ----*/
+.jobItem{
+  margin-top: 1em;
+}
 /*---- Home Page ----*/
 .section-bg {
   background-image: url("../assets/images/img-02.jpg");

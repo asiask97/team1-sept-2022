@@ -72,7 +72,7 @@
 .section-container-spacer {
   margin-bottom: 30px;
 }
-h2:after {
+/* h2:after {
   content: "";
   display: block;
   background-color: #66c0b3;
@@ -82,7 +82,7 @@ h2:after {
 }
 h2.text-center:after {
   margin: 20px auto;
-}
+} */
 
 
 /*Mobile navbar*/

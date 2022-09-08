@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 
+
 /*---- LOGIN ----*/
 #login_from{
   margin-top: 20vh;
@@ -94,5 +95,8 @@ h2.text-center:after {
   }
   #mobile_nav{
     display: inline-block;
+  }
+  .alert{
+    margin-top: 1.2em;
   }
 }

@@ -4,10 +4,10 @@
   
 
 <div class="px-2 py-2 my-2 text-center">
-    <h1 class="display-5 fw-bold">View Jobs</h1>
+    <h1 class="display-5 fw-bold">Jobs offering: {{pagename}}</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">
-        Here you can view available opportunities.</p>
+        <a class="btn btn-lg btn-primary" href="{{ url_for('jobposts') }}" role="button">View All Jobs</a></p>
     </div>
   </div>
 

@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<div
+<!-- <div
   class="background-image-container white-text-container"
   style="background-image: url('static/assets/images/img-05.jpg')"
 >
@@ -13,7 +13,165 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="p-5 my-4 bg-light rounded-3" style="background-image: url('static/assets/images/img-05.jpg')">
+  <div class="container-fluid py-5" >
+    <h1 class="display-5 fw-bold">Equality Works!</h1>
+    <p class="col-md-8 fs-4 text-white">Here you can find jobs that cater to you.</p>
+    
+    <a
+    href="{{ url_for('jobposts') }}"
+    class="btn btn-primary btn-lg"
+    role="button"
+    >View Jobs Now</a
+  >
+  </div>
 </div>
+
+<div class="container  px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img src="../static/assets/images/img-01.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">What we do</h1>
+      <p class="lead">Explanation and overview of what we do at this site, our rationale and methods and aims. Explanation and overview of what we do at this site, our rationale and methods and aims. Explanation and overview of what we do at this site, our rationale and methods and aims. Explanation and overview of what we do at this site, our rationale and methods and aims</p>
+    
+    </div>
+  </div>
+</div>
+
+<div class="container px-4 py-5" id="icon-grid">
+  <h2 class="pb-2 border-bottom">Badges List</h2>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> </h4>
+        <p>After-work childcare available.</p>
+      </div>
+    </div>
+   
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible</a> </h4>
+        <p>Flexible schedule</p>
+      </div>
+    </div>
+
+
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Remote</a> </h4>
+        <p>Remote work available.</p>
+      </div>
+    </div>
+
+
+
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> </h4>
+        <p>Friendly to LGBTQIA+.</p>
+      </div>
+    </div>
+
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> </h4>
+        <p>After-work childcare available.</p>
+      </div>
+    </div>
+   
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible</a> </h4>
+        <p>Flexible schedule</p>
+      </div>
+    </div>
+
+
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Remote</a> </h4>
+        <p>Remote work available.</p>
+      </div>
+    </div>
+
+
+
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> </h4>
+        <p>Friendly to LGBTQIA+.</p>
+      </div>
+    </div>
+
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Childcare</a> </h4>
+        <p>After-work childcare available.</p>
+      </div>
+    </div>
+   
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Flexible</a> </h4>
+        <p>Flexible schedule</p>
+      </div>
+    </div>
+
+
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">Remote</a> </h4>
+        <p>Remote work available.</p>
+      </div>
+    </div>
+
+
+
+    <div class="col d-flex align-items-start">
+      
+      <div>
+        <h4 class="fw-bold mb-0"><a class="btn btn-outline-dark rounded-pill" href="#" role="button">LGBTQIA+</a> </h4>
+        <p>Friendly to LGBTQIA+.</p>
+      </div>
+    </div>
+
+    
+
+
+  </div>
+</div>
+
+
+<div class="container my-5">
+  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+    <div class="p-3 p-lg-5 pt-lg-3 text-center">
+      <h1 class="display-5 lh-1">Salary Calculator</h1>
+      <p class="lead">Find out here how much you could make in a tech job! Calculator goes here.</p>
+      <div class="">
+        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Calculate</button>
+       
+      </div>
+    </div>
+   
+  </div>
+</div>
+
 <div class="section-container">
   <div class="container">
     <div class="row">
@@ -57,6 +215,7 @@
     </div>
   </div>
 </div>
+
 <div class="section-container section-half-background-image-container">
   <div
     class="image-column"
@@ -93,5 +252,14 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
 
 {% endblock %}

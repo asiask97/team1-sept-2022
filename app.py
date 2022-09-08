@@ -54,6 +54,7 @@ class Jobs(db.Model):
     job_id = db.Column(db.Integer, primary_key = True)    
     created_by = db.Column(db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.String(200), nullable=False)
+    company = db.Column(db.String(200), nullable=False)
     referenceNo = db.Column(db.String(200))
     description = db.Column(db.Text(), nullable=False)
     salary = db.Column(db.Float)
@@ -117,7 +118,7 @@ def login():
                 #login user
                 login_user(user)
                 flash('Hi '+ user.name + '! Thanks for trying to make a world more equal place')
-                return render_template('jobposts.html')
+                return redirect(url_for('jobposts'))
         else:
             flash('Wrong email or password')
             return redirect(url_for('login'))
@@ -131,12 +132,32 @@ def logout():
 
 @app.route('/jobposts', methods = ['GET'])
 def jobposts():
-    jobs = Jobs.query.all()
+    jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
     for job in jobs:
         user = Users.query.filter_by(id = job.created_by).first()
         job.username = user.name
     if request.method == 'GET':
         return render_template('jobposts.html', jobs=jobs)
+
+@app.route('/badgeview/<int:id>', methods = ['GET'])
+def badgeview(id):
+
+    jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
+    for job in jobs:
+        user = Users.query.filter_by(id = job.created_by).first()
+        job.username = user.name
+
+    if id == 1:
+        jobs = Jobs.query.filter(Jobs.childcare.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Childcare")
+    if id == 2:
+        jobs = Jobs.query.filter(Jobs.parttime.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Part time work")
+    if id == 3:
+        jobs = Jobs.query.filter(Jobs.fourday.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Four day week")
+    if request.method == 'GET':
+        return render_template('badgeview.html', jobs=jobs)
 
 @app.route('/jobposts/delete/<int:id>', methods = ['POST'])
 def jobposts_delete(id):
@@ -149,6 +170,17 @@ def jobposts_delete(id):
     except:
         print('error handler')
 
+
+@app.route('/search')
+def search():
+    
+    queryterm = request.args.get('q')
+    
+    # jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
+    jobs = Jobs.query.filter(Jobs.title.like('%' + queryterm + '%'))
+    # posts = posts.order_by(Posts.title).all()
+    # jobs = jobs.query.order_by(Jobs.datetime.desc()).all()
+    return render_template('searchresults.html', jobs=jobs, searchterm=queryterm)
 
 @app.route('/addjob', methods = ['GET','POST'])
 @login_required
@@ -169,10 +201,13 @@ def addjob():
         if(request.form.get('refnum')):
             referenceNo = request.form.get('refnum')
 
+
+
         job = Jobs( title = request.form.get('title'), 
                     referenceNo = referenceNo, 
                     description = request.form.get('discription'), 
                     location = request.form.get('location'), 
+                    company = request.form.get('company'), 
                     salary = salary, 
                     created_by = current_user.id, 
                     parttime=parttime, 
@@ -183,7 +218,7 @@ def addjob():
         db.session.add(job)
         db.session.commit()
         flash('Your job was posted.')
-        return render_template('jobposts.html')
+        return redirect(url_for('jobposts'))
 
 
 # API 

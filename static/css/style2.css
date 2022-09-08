@@ -1,0 +1,27 @@
+/*---- Home Page ----*/
+.section-bg {
+  background-image: url("../assets/images/img-02.jpg");
+  background-size: 1350px;
+  width: 1270px;
+  height: 500px;
+}
+
+.fa-container {
+  text-align: center;
+  color: #000;
+  margin-bottom: 25px;
+}
+.section-container-spacer {
+  margin-bottom: 30px;
+}
+h2:after {
+  content: "";
+  display: block;
+  background-color: #66c0b3;
+  height: 3px;
+  margin: 20px 0;
+  width: 100px;
+}
+h2.text-center:after {
+  margin: 20px auto;
+}

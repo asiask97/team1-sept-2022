@@ -1,157 +1,177 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
-
+@import "style2.css";
 
 /*---- LOGIN ----*/
-#login_from{
+
+#login_from {
   margin-top: 20vh;
   margin-bottom: 20vh;
 }
-#warning{
+#warning {
   margin-top: 1em;
 }
-#login_from h1{
+#login_from h1 {
   margin-bottom: 1em;
 }
 
 /*---- REGISTER ----*/
-#register_form{
+#register_form {
   margin-top: 15vh;
   margin-bottom: 15vh;
 }
-#register_form h1{
+#register_form h1 {
   margin-bottom: 1em;
 }
-.signin{
+.signin {
   margin-top: 1em;
   padding-left: 0;
 }
-#register_form a{
+#register_form a {
   color: rgb(255, 193, 7);
 }
 
 /*---- ADD JOB ----*/
-#add_job_form{
+#add_job_form {
   margin-top: 10vh;
   margin-bottom: 10vh;
 }
 
 /*---- VIEW JOB ----*/
-.jobItem{
+.jobItem {
   margin-top: 1em;
 }
 
 /*---- PROFILE ----*/
-#profile_form{
+#profile_form {
   margin-top: 20vh;
   margin-bottom: 2em;
 }
-#profile_delete{
+#profile_delete {
   margin-bottom: 20vh;
 }
 
 /*---- JOB POSTS AND SEARCH JOBS ----*/
-.jobposts{
+.jobposts {
   margin-top: 5em;
 }
 
+/* ---- Resource Page ---- */
 
-
-/*---- Home Page ----*/
-.section-bg {
-  background-image: url("../assets/images/img-02.jpg");
-  background-size: 1350px;
-  width: 1270px;
-  height: 500px;
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  /* border: 1px solid #66c0b3; */
+  perspective: 1000px;
 }
 
-.fa-container {
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
   text-align: center;
-  color: #000;
-  margin-bottom: 25px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
-.section-container-spacer {
-  margin-bottom: 30px;
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
-/* h2:after {
-  content: "";
-  display: block;
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
   background-color: #66c0b3;
-  height: 3px;
-  margin: 20px 0;
-  width: 70px;
+  color: white;
+  transform: rotateY(180deg);
 }
-h2.text-center:after {
-  margin: 20px auto;
-} */
+*/
 
 
 /*Mobile navbar*/
-#mobile_nav{
+#mobile_nav {
   display: none;
 }
 @media only screen and (max-width: 991px) {
-  #destkop_nav{
+  #destkop_nav {
     display: none;
   }
-  #mobile_nav{
+  #mobile_nav {
     display: inline-block;
   }
-  .alert{
+  .alert {
     margin-top: 1.2em;
   }
 }
 
 .btn-childcare {
-  background-color: #DC0430;
-  color: #FFFFFF;
+  background-color: #dc0430;
+  color: #ffffff;
 }
 .btn-lgbtqia {
-  background-color: #FC4A6E;
-  color: #FFFFFF;
+  background-color: #fc4a6e;
+  color: #ffffff;
 }
 .btn-remote {
-  background-color: #FE9523;
+  background-color: #fe9523;
 }
 .btn-flexible {
-  background-color: #FFCC30;
+  background-color: #ffcc30;
 }
 .btn-insurance {
-  background-color: #53D969;
-  color: #FFFFFF;
+  background-color: #53d969;
+  color: #ffffff;
 }
 .btn-mentor {
-  background-color: #3DAADC;
-  color: #FFFFFF;
+  background-color: #3daadc;
+  color: #ffffff;
 }
 .btn-zero-tolerance {
-  background-color: #167EFC;
-  color: #FFFFFF;
+  background-color: #167efc;
+  color: #ffffff;
 }
 .btn-no-pay-gap {
-  background-color: #3DAADC;
-  color: #FFFFFF;
+  background-color: #3daadc;
+  color: #ffffff;
 }
 .btn-diverse-panel {
-  background-color: #585CD2;
-  color: #FFFFFF;
+  background-color: #585cd2;
+  color: #ffffff;
 }
 .btn-bootcamp {
   background-color: #afdd32;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .btn-career-gap {
-  background-color: #9E2D7B;
-  color: #FFFFFF;
+  background-color: #9e2d7b;
+  color: #ffffff;
 }
 .btn-parttime {
   background-color: #d87ebdc6;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .btn-four-day {
   background-color: #9ae19c55;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .btn-realistic-experience {
   background-color: #08f4cd;
-  color: #FFFFFF;
+  color: #ffffff;
 }

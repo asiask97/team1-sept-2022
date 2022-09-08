@@ -90,6 +90,10 @@ class Savedjobs(db.Model):
 def index():
     return render_template('home.html')
 
+@app.route('/resources', methods = ['GET'])
+def resources():
+    return render_template('resources.html')
+
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     if request.method == 'GET':

@@ -29,7 +29,7 @@
       />
     </div>
     <div class="col-lg-6">
-      <h1 class="display-5 fw-bold lh-1 mb-3">What we do</h1>
+      <h1 class="display-5 fw-bold lh-1 mb-3">What We Do</h1>
       <p class="lead">
         Explanation and overview of what we do at this site, our rationale and
         methods and aims. Explanation and overview of what we do at this site,
@@ -42,7 +42,7 @@
 </div>
 
 <div class="container px-4 py-5" id="icon-grid">
-  <h2 class="pb-2 border-bottom">Badges List</h2>
+  <h2 class="pb-2 border-bottom text-center">Badges List</h2>
 
   <div
     class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5"
@@ -243,4 +243,10 @@
   </div>
 </div>
 
-{% endblock %}
+{% endblock %} {% block stylesheet %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='css/style2.css') }}"
+/>
+{% endblock stylesheet %}

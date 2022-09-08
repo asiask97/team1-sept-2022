@@ -1,33 +1,22 @@
 <header class="p-3 text-bg-dark">
-  <div class="container">
+  <div class="container" id="destkop_nav">
     <div
-      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-    >
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a class="navbar-brand" href="{{ url_for('index') }}"><img src="../static/images/whiteLogo.svg" width="100px" height="50px"></a>
 
-      <ul
-        class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
-      >
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="{{ url_for('index') }}" class="nav-link px-2 text-white"
-            >Home</a
-          >
+          <a href="{{ url_for('index') }}" class="nav-link px-2 text-white">Home</a>
         </li>
         <li>
-          <a href="{{ url_for('jobposts') }}" class="nav-link px-2 text-white"
-            >Jobs</a
-          >
+          <a href="{{ url_for('jobposts') }}" class="nav-link px-2 text-white">Jobs</a>
         </li>
         {% if current_user.is_authenticated %}
         <li>
-          <a href="{{ url_for('addjob') }}" class="nav-link px-2 text-white"
-            >Post Job</a
-          >
+          <a href="{{ url_for('addjob') }}" class="nav-link px-2 text-white">Post Job</a>
         </li>
         {% endif %}
-       
       </ul>
-
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="{{ url_for('search') }}">
         <input
           type="search"
@@ -37,38 +26,90 @@
           aria-label="Search"
         />
       </form>
-
-     
-
       <div class="text-end">
         {% if current_user.is_authenticated %}
         <a
         href="{{ url_for('logout') }}"
         class="btn btn-outline-light me-2"
-        role="button"
-        >Logout</a
-        >
+        role="button">Logout</a>
         <a
         href="{{ url_for('profile') }}"
         class="btn btn-outline-light me-2"
-        role="button"
-        >Profile</a
-        >
+        role="button">Profile</a>
         {% else %}
         <a
           href="{{ url_for('login') }}"
           class="btn btn-outline-light me-2"
-          role="button"
-          >Login</a
-        >
+          role="button">Login</a>
         <a
           href="{{ url_for('register') }}"
           class="btn btn-warning"
-          role="button"
-          >Sign Up</a
-        >
+          role="button">Sign Up</a>
         {% endif %}
       </div>
     </div>
   </div>
+  <div id="mobile_nav">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index') }}"><img src="../static/images/whiteLogo.svg" width="100px" height="50px"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <a class="navbar-brand" href="{{ url_for('index') }}"><img src="../static/images/whiteLogo.svg" width="100px" height="50px"></a>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a href="{{ url_for('index') }}" class="nav-link px-2 text-white">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url_for('jobposts') }}" class="nav-link px-2 text-white">Jobs</a>
+              </li>
+              {% if current_user.is_authenticated %}
+              <li>
+                <a href="{{ url_for('addjob') }}" class="nav-link px-2 text-white">Post Job</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                {% if current_user.is_authenticated %}
+                  <a
+                  href="{{ url_for('logout') }}"
+                  class="nav-link"
+                  role="button">Logout</a>
+                  <a
+                  href="{{ url_for('profile') }}"
+                  class="nav-link"
+                  role="button">Profile</a>
+                  {% else %}
+                  <a
+                    href="{{ url_for('login') }}"
+                    class="nav-link"
+                    role="button">Login</a>
+                  <a
+                    href="{{ url_for('register') }}"
+                    class="nav-link"
+                    role="button">Sign Up</a>
+                  {% endif %}
+              </li>
+            </ul>
+            <form class="d-flex" role="search"  action="{{ url_for('search') }}">
+                <input
+                  type="search"
+                  name="q"
+                  class="form-control form-control-dark text-bg-dark"
+                  placeholder="Search jobs..."
+                  aria-label="Search"
+                />
+              <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  
 </header>

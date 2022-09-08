@@ -48,6 +48,13 @@
   margin-bottom: 20vh;
 }
 
+/*---- JOB POSTS AND SEARCH JOBS ----*/
+.jobposts{
+  margin-top: 5em;
+}
+
+
+
 /*---- Home Page ----*/
 .section-bg {
   background-image: url("../assets/images/img-02.jpg");
@@ -74,4 +81,18 @@ h2:after {
 }
 h2.text-center:after {
   margin: 20px auto;
+}
+
+
+/*Mobile navbar*/
+#mobile_nav{
+  display: none;
+}
+@media only screen and (max-width: 991px) {
+  #destkop_nav{
+    display: none;
+  }
+  #mobile_nav{
+    display: inline-block;
+  }
 }

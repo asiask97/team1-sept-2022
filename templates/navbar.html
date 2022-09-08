@@ -47,7 +47,13 @@
         class="btn btn-outline-light me-2"
         role="button"
         >Logout</a
-      >
+        >
+        <a
+        href="{{ url_for('profile') }}"
+        class="btn btn-outline-light me-2"
+        role="button"
+        >Profile</a
+        >
         {% else %}
         <a
           href="{{ url_for('login') }}"

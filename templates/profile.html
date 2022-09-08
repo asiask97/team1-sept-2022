@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+<form action="/profile" method="POST" id="profile_form">
+    <h1>Change Profile Details</h1>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" name="name" id="name" value="{{user.name}}">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" id="email"  value="{{user.email}}">
+    </div>
+    <div class="row">
+        <div class="col">
+            <label for="psw" class="form-label">New Password</label>
+            <input type="password" class="form-control" id="psw" name="psw">
+        </div>
+        <div class="col">
+            <label for="psw-repeat" class="form-label">Repeat New Password</label>
+            <input type="password" class="form-control" id="psw-repeat" name="psw-repeat">
+        </div>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-warning">Change</button>
+    <button type="" class="btn btn-danger">DELETE ACCOUNT</button>
+
+  </form>
+
+{% endblock %}

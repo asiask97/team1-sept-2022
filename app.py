@@ -8,6 +8,7 @@ import uuid
 import datetime
 import itertools
 import os
+import re
 
 app = Flask(__name__)
 CORS(app)
@@ -19,7 +20,10 @@ def favicon():
 if os.environ.get("DEVELOPMENT") == True :
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.ge("DB_URL")
 else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.ge("DATABASE_URL")
+    uri = os.environ.get("DATABASE_URL")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri  
 
 # folder for images 
 UPLOAD_FOLDER = 'static/images/'

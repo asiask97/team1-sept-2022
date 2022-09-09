@@ -51,9 +51,9 @@
 }
 
 /*---- JOB POSTS AND SEARCH JOBS ----*/
-.jobposts {
+/* .jobposts {
   margin-top: 5em;
-}
+} */
 
 /* ---- Resource Page ---- */
 
@@ -102,7 +102,7 @@
   color: white;
   transform: rotateY(180deg);
 }
-*/
+
 
 
 /*Mobile navbar*/
@@ -174,4 +174,21 @@
 .btn-realistic-experience {
   background-color: #08f4cd;
   color: #ffffff;
+}
+
+
+
+
+/* preserves line breaks in job description text  */
+.description-body{
+  white-space: pre-wrap;
+}
+
+.badge-circle {
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3rem;
+  line-height: 5rem;
+  padding: 0
 }

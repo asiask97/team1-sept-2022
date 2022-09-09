@@ -188,6 +188,17 @@ def badgeview(id):
     for job in jobs:
         user = Users.query.filter_by(id = job.created_by).first()
         job.username = user.name
+    
+    
+    for job in jobs:
+        user = Users.query.filter_by(id = job.created_by).first()
+        job.username = user.name
+        if(current_user.is_authenticated):
+            savedjobs = Savedjobs.query.filter_by(job_id = job.job_id, user_id = current_user.id).first()
+            if(savedjobs):
+                job.saved = 'Remove'
+            else:
+                job.saved = 'Save Job'
 
     if id == 1:
         jobs = Jobs.query.filter(Jobs.lgbt.is_(True)).order_by(Jobs.datetime.desc())
@@ -319,6 +330,15 @@ def profile():
 def search():
     queryterm = request.args.get('q')
     jobs = Jobs.query.filter(Jobs.title.ilike('%' + queryterm + '%') | Jobs.description.ilike('%' + queryterm + '%') | Jobs.company.ilike('%' + queryterm + '%') | Jobs.location.ilike('%' + queryterm + '%'))
+    for job in jobs:
+        user = Users.query.filter_by(id = job.created_by).first()
+        job.username = user.name
+        if(current_user.is_authenticated):
+            savedjobs = Savedjobs.query.filter_by(job_id = job.job_id, user_id = current_user.id).first()
+            if(savedjobs):
+                job.saved = 'Remove'
+            else:
+                job.saved = 'Save Job'
     return render_template('searchresults.html', jobs=jobs, searchterm=queryterm)
 
 @app.route('/addjob', methods = ['GET','POST'])

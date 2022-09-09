@@ -121,6 +121,17 @@
   }
 }
 
+.active {
+  transform: translateX(0%) !important;
+  opacity: 1 !important;
+}
+.slide-in, .slide-in-two, .slide-in-three{
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.6s ease-in-out;
+  opacity: 0.6s ease-in-out;
+}
+
 .btn-childcare {
   background-color: #dc0430;
   color: #ffffff;

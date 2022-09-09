@@ -27,7 +27,7 @@ else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
         uri = uri.replace("postgres://", "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri 
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri  
 
 # folder for images 
 UPLOAD_FOLDER = 'static/images/'
@@ -318,7 +318,7 @@ def profile():
 @app.route('/search')
 def search():
     queryterm = request.args.get('q')
-    jobs = Jobs.query.filter(Jobs.title.like('%' + queryterm + '%') | Jobs.description.like('%' + queryterm + '%') | Jobs.company.like('%' + queryterm + '%') | Jobs.location.like('%' + queryterm + '%'))
+    jobs = Jobs.query.filter(Jobs.title.ilike('%' + queryterm + '%') | Jobs.description.ilike('%' + queryterm + '%') | Jobs.company.ilike('%' + queryterm + '%') | Jobs.location.ilike('%' + queryterm + '%'))
     return render_template('searchresults.html', jobs=jobs, searchterm=queryterm)
 
 @app.route('/addjob', methods = ['GET','POST'])

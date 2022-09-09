@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('hi')
     const save_jobs = document.querySelectorAll('.save_job')
     save_jobs.forEach(job => {
         job.addEventListener('click', handler)
     })
     function handler(e){
-        console.log(e.target.classList[4])
         option=''
         if(e.target.innerHTML == 'Save Job'){
             e.target.innerHTML = 'Remove'
@@ -14,11 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
             e.target.innerHTML = 'Save Job'
             option='remove'
         }
-        console.log(e.target.classList)
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/jobposts/saved' + '?id=' + e.target.classList[3] + '&option=' + option, true); 
         xhr.send();
-        console.log('send')
     }
     
     const slidingOne = document.querySelector('.slide-in');

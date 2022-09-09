@@ -90,14 +90,24 @@ Some of user stories are planned for next sprint
 
 #### Agile Management
 
-Screenshot of Kanban board
+Throughout our project we have used Kanban board created in GitHub.  
 
-Description of agile managemtn, sprints, assigning tasks and priorities
-
-
+[Have a look at our Kanban borad](https://github.com/users/asiask97/projects/1/views/1)
 
 
+We have divided our board into 4 sections.  
 
+We treated each day as an individual sprint. As with usual sprints at the end of each we have planned to have all tasks that were assigned to each person completed.  
+
+Every day we had a stand up meetings where we looked at what was done, what issues were encountered and solutions to any problems 
+
+1. **Done** – this is where all the tasks which were completed went. Throughout the project we could all see this section fill up, which motivated us even more.  
+2. **In Process** - this section included all the things we were currently working on. We picked out the most important tasks and assigned them to one or two people based on their abilities and interests. 
+3. **Todo** – here we placed the most important things from the backlog. We always wanted to have something in this section to avoid any down time where someone does not know what they should do. 
+4. **Backlog** – The backlog contained all the user stories and functions that we wanted to include in our project. Items were taken from backlog based on their priority. 
+
+Here you can see our Kanban board mid sprint 
+![Kanban board mid sprit](/static/documentation/kanban.png)
 
 
 
@@ -113,10 +123,19 @@ Description of agile managemtn, sprints, assigning tasks and priorities
 
 #### Information Structure - Database Models
 
-Screenshot of databse model and description of model and reasons for each field included and any DB relationships
+After a team meeting, we decided on a relational database. Our database system consists of 3 tables.  
 
+- The Users table contains all the credentials necessary for a user's account. Each user when registering is asked to choose whether they are an employee or employer this is saved in ‘userType’ field.  
 
+- The Jobs table has all the details needed for a job posting. Each job has a ‘created_by’ field with a foreign key that helps to identify the user who created this job post. Each user can have multiple job posts, so this is one to many relationship. All the fields with Boolean type are badges used to identify the inclusivity that the employer is providing. On creation of the job the employer chooses the relevant fields, and those fields will hold the value of ‘True’. This helps to search for jobs by their badges.  
 
+- The Savedjobs table helps to identify all the saved jobs by the user. It consists of primary key field that helps to identify the savejobs item and two foreign keys, one has many to many relationships with the Users table to have access to the correct user and the other has many to many relationship with Jobs table to help identify which job was saved. This combination gets us the lists of jobs that the user has saved.  
+
+![databse shema](/static/documentation/database.png)
+
+ 
+
+<img of databse shema> 
 
 ### Skeleton
 
@@ -138,18 +157,37 @@ All wireframes were designed base on mobile first principle, along side with a t
 
 
 ## Features
+ Equality works has many useful and interesting features which will help reduce or even eliminate the gender gap in IT. The gender gap starts off with many workplaces being not inclusive enough to women and other minorities in IT. Equality Works is a job posting platform which helps to reduce the gender gap by promoting inclusive working environments. We are hoping that employees will be encouraged by badges to become a more attractive workplace for all and gain higher visibility on the platform as the users are encouraged to search by badge type which suits their current needs. 
 
 ### Employee Features
 
-#### * Homepage
-description
 
+#### **Homepage**
+Equality Works home page has a modern and flesh look. Every bit of text is easily readable and the slide in animations adds in some interaction as the user explores the page.  
+
+- The first thing the user sees is a hero image and brief explanation of what this website does.  
+
+- Further down user is introduced to concept of badges. If a badge interests the user, it may be clicked. The user will be taken to a search with displays all the jobs from the database where the employers who included this badge in their job post.  
+
+- Below the list of badges, the user can find a calculator where they can calculate how much more they might gain if they decide to switch to id. This was included to motivate women to change jobs into IT, hence reduction the gender gap.  
+
+- At the bottom of the home page the user can find more information on why this project was created and how we are planning to help women and minorities reduce the gender gap. 
 screenshot here
 
-#### * Job listing page
-description
+====================================== ADD SCRENSHOTS OF EACH SECTION  =========================================
+#### **Jobs**  
+The job listings page is the essence of Equality Works. 
 
+- On this subpage of the website, we can see all the jobs that were added by employers. Those jobs can be filtered by badges at the top of the page or if user clicks on the badge on job listing itself. This is a very intuitive and effortless way to filter jobs. The more badges a job post has the better because it will appear in more searches, this motivates the employer to be more inclusive and helps employee to find inclusive jobs.  
+
+- The user can click on the save button if they are logged in which will save the jobs for later use. 
+
+- The job description is hidden until the user chooses to learn more about the job by clicking ‘View Detail’ button. 
+
+- Apply now! Button lets user apply to a job with just one single click! 
 screenshot here
+
+#### **Resources**  
 
 ### Employer Features
 

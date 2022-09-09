@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('hi')
     const save_jobs = document.querySelectorAll('.save_job')
     save_jobs.forEach(job => {
         job.addEventListener('click', handler)
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/jobposts/saved' + '?id=' + e.target.classList[4] + '&option=' + option, true); 
         xhr.send();
-    
+        console.log('send')
     }
     
     const slidingOne = document.querySelector('.slide-in');

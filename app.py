@@ -22,7 +22,7 @@ def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 # Add the database 
 if os.environ.get("DEVELOPMENT") == True :
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URL")
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.ge("DB_URL")
 else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):

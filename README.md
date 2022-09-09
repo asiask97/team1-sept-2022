@@ -1,9 +1,13 @@
 # Equality Works
 
 ## Introduction
+Equality Works is a project made by collaboration of 5 coders for a Hackathon organized by Code Institute and sponsored by Deloitte and Trust in SODA. The theme of this Hackathon is based around the gender gap between women in IT sector. Competitors were asked to provide a solution to this problem. 
 
+Equality Works main goal is to provide women as well as other minorities a place where they can easily find jobs which would suit their current needs during various stages of life. While doing our research we have found that one of key issues related to gender gap in IT is retention.  
 
-Intro goes here
+Many women study hard, get degrees and training to find a job they are not happy in and decide to quit. Our portal provides them with a space where they can find a job that suits their needs, whether it be childcare during after work meetings, inclusive interview panels or mentoring programs they can find the right job here. 
+
+Equality Works gives employers a chance to show off their inclusive policies and find dedicated and happy employees, so it is really a win-win for all parties involved!  
 
 <br>
 
@@ -45,9 +49,16 @@ Screenshot of home page
 ### Strategy
 
 * Site Goals
-    * To enable users search for jobs
+    * To enable users search for jobs.
+    * To allow users add jobs.
+    * To have a modern and eye-pleasing design.  
+    * To allow users apply to jobs.
+    * To improve equality in the workplace  
+    * To keep women in IT jobs and improve retention  
 
 * User Goals
+    * The ideal employee would be a woman  or a person from a minority who is looking for an inclusive place to work at in IT field.
+    * The ideal employer is one that wants to find dedicated workers and is happy to include minorities and close the gender gap.  
 
 
 
@@ -113,13 +124,21 @@ Here you can see our Kanban board mid sprint
 
 
 ### Scope
+After having analyzed user stories as a team we have developed a high-level view of what our project should contain and how it should be structured to be the most efficient and easy to navigate. We have decided on the fallowing technical features: 
 
-
+- Calculator – can compare their future income to their current salary 
+- Jobs – jobs can be added by employers 
+- Saving – jobs can be saved by any user 
+- Register – user can create an account as employee or employer 
+- Login – user can login to view saved jobs 
+- Deletion – user can delete account and update information. Job posts can be deleted 
 
 ### Structure
 
 #### Design Structure - Site layout
-* 
+* The design of this website should be clear and intuitive. There should be a navigation bar at the top for easy navigation and ‘hamburger’ navigation bar on mobile phones.  
+* All navigation and buttons should be in highly visible places. 
+* All forms should be simple and easy to fill out.  
 
 #### Information Structure - Database Models
 
@@ -189,19 +208,33 @@ screenshot here
 
 #### **Resources**  
 
-### Employer Features
 
-#### * Create new job listing
-Description
+#### **Create new job listing**
 
 
+#### **Mentors**
 
 
+#### **Support Pages**
+* Login
 
+  Img here
+* Register 
+
+  Img here
+* Profile
+
+  Img here
 
 ## Future Features
 
-List of outstanding features for future development 
+There are a number of features which the team plans to implement in the future. They were left out due to constraints in terms of time and scope, but are indicative of the future direction of the site and the ways in which it could expand.
+* Image Uploading - this feature would allow users to upload images to use as a profile picture and companies to upload images for use as their logo.
+* Document Management - since user profiles have already been created on the site, by allowing the uploading and storing of CV’s, cover letters etc, these can then be attached to any job application made through the site automatically, saving the user time and effort.
+* Multiple Criteria Filtering - currently the site filters jobs based on a single criteria at a time, in the future this could be expanded to filter on multiple fields at once.
+* Social Media Integration - for users, social media sign-in could be integrated, allowing the use of a Google or Facebook account to log in to the site. Social media share buttons could be added to job posts to allow easy sharing, and with the use of the Twitter API new job posts could be automatically posted to social media channels.
+* Application Management - Since we have profiles for both employees and employers, we could also build functionality to manage the creation and tracking of job applications, providing a central admin interface for employers to screen and select interview candidates.
+* Issues Tackled - the site is focussed on tackling a number of important issues which affect the gender balance of jobs in tech. After the site has been in use and user feedback has been collected, these topics could be refined and expanded upon.
 
 
 ## Search Engine Optimization
@@ -216,8 +249,30 @@ Description of meta-tags and any keyword research
 
 * Python
     * These Python modules were used for the project:
-       * Paste modules from requirements.txt
-
+      ```
+      click==8.1.3
+      Flask==2.2.2
+      Flask-Cors==3.0.10
+      Flask-Login==0.6.2
+      flask-marshmallow==0.14.0
+      Flask-SQLAlchemy==2.5.1
+      greenlet==1.1.3
+      gunicorn==20.1.0
+      importlib-metadata==4.12.0
+      itsdangerous==2.1.2
+      Jinja2==3.1.2
+      MarkupSafe==2.1.1
+      marshmallow==3.17.1
+      marshmallow-sqlalchemy==0.28.1
+      packaging==21.3
+      psycopg2-binary==2.9.3
+      pyparsing==3.0.9
+      six==1.16.0
+      SQLAlchemy==1.4.40
+      Werkzeug==2.2.2
+      WTForms==3.0.1
+      zipp==3.8.1
+      ```
 
 * Heroku
     * The project was deployed using Heroku's cloud-based platform
@@ -301,7 +356,9 @@ The project was deployed on the Heroku site by using these steps:
 
 ## Coding Inspiration
 
-[Google](https://www.google.ie/) - code credits here <br>
+[Youtube - codemy.com](https://www.youtube.com/watch?v=0Qxtt4veJIc&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&ab_channel=Codemy.com) - Walk through building a simple blog. <br>
+
+
 
 
 # Acknowledgements

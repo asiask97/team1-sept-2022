@@ -126,7 +126,7 @@ def register():
             flash('Passwords did not match') 
             return redirect(url_for('register'))
         elif(checkEmail):
-            flash('Email already exits') 
+            flash('Email already exists') 
             return redirect(url_for('register'))
         else: 
             hashed_password = generate_password_hash(request.form.get('psw'))
@@ -344,8 +344,12 @@ def search():
 @app.route('/addjob', methods = ['GET','POST'])
 @login_required
 def addjob():
-    if request.method == 'GET':   
-        return render_template('addjob.html')
+    if request.method == 'GET':
+        if current_user.userType == "employer":   
+            return render_template('addjob.html')
+        else:
+            flash('You do not have access to this page') 
+            return redirect(url_for('index'))
 
     if request.method == 'POST':
         

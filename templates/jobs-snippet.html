@@ -1,0 +1,91 @@
+{% for job in jobs %}
+
+
+
+<div class ="d-none d-md-block">
+  <div class="card mb-3 jobItem rounded-pill">
+    <div class="row g-0 align-items-center">
+      <div class="col-md-2 text-center">
+        <!-- <div class="bg-success">t</div> -->
+        <span class="col-md-5 color--heading">
+          <span class="badge badge-circle bg-success mr-3">{{job.company.0}}</span> 
+        </span>
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">{{job.company}}</h5>
+          <h3 class="card-title fw-bold">{{job.title}} </h3>
+          <p class="card-text">{{job.location}} €{{ ("%.2f"|format(job.salary)).rstrip('0').rstrip('.') }}</p>
+         
+          <!-- <p class="card-text"></p> -->
+
+          
+          {% include 'badge-pill-snippet.html' %}
+
+
+        </div>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="btn-group-vertical">
+       
+       
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample-{{loop.index}}"
+          role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
+        <a class="btn  btn-warning "
+          href="mailto:{{job.email}}?subject=Apply for {{job.title}} at {{job.company}} - Reference: {{job.referenceNo}}&body=Please fill out your application details here and attach your CV"
+          role="button">Apply Now!</a>
+
+          {% if current_user.is_authenticated %}
+         {% if current_user.id == job.created_by%}
+        <a class="btn  btn-danger " onclick="return confirm('Are you sure?')" href="/jobposts/delete/{{job.job_id}}" role="button">Delete</a>
+        {% endif %}
+         {% endif %}
+
+        {% if current_user.is_authenticated %}
+        <button class="btn  btn-secondary save_job {{job.job_id}}">{{ job.saved }}</button>
+        {% endif %}
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="card d-md-none my-2">
+    <div class="card-header">
+        {{job.company}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title fw-bold">{{job.title}}</h5>
+      <p class="card-text">{{job.location}} €{{ ("%.2f"|format(job.salary)).rstrip('0').rstrip('.') }}</p>
+     <p> {% include 'badge-pill-snippet.html' %} </p>
+      <div class="btn-group">
+       
+       
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample-{{loop.index}}"
+          role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
+        <a class="btn  btn-warning "
+          href="mailto:{{job.email}}?subject=Apply for {{job.title}} at {{job.company}} - Reference: {{job.referenceNo}}&body=Please fill out your application details here and attach your CV"
+          role="button">Apply Now!</a>
+
+          {% if current_user.is_authenticated %}
+         {% if current_user.id == job.created_by%}
+        <a class="btn  btn-danger " onclick="return confirm('Are you sure?')" href="/jobposts/delete/{{job.job_id}}" role="button">Delete</a>
+        {% endif %}
+         {% endif %}
+
+        {% if current_user.is_authenticated %}
+        <button class="btn  btn-secondary save_job {{job.job_id}}">{{ job.saved }}</button>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="collapse" id="collapseExample-{{loop.index}}">
+    <div class="card card-body">
+     <p class="description-body">{{job.description}}</p>
+    </div>
+  </div>
+
+  {% endfor %}

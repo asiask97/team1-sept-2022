@@ -160,7 +160,10 @@ After a team meeting, we decided on a relational database. Our database system c
 
 #### Wireframes
 
-All wireframes were designed base on mobile first principle, along side with a tablet and destop view. You can see all wireframes [here](static/documentation/wireframes.md).
+All wireframes were designed base on mobile first principle, along side with a tablet and destop view. You can see all wireframes below.
+![landing-page](/static/documentation/wireframes/landing-page.png)
+![landing-page](/static/documentation/wireframes/login-page.png)
+![landing-page](/static/documentation/wireframes/job-listing-page.png)
 
 ### Surface
 
@@ -218,13 +221,21 @@ screenshot here
 #### **Support Pages**
 * Login
 
-  Img here
+  ![login page](/static/documentation/login.png)
 * Register 
 
-  Img here
+  ![sign up page](/static/documentation/signup.png)
 * Profile
 
-  Img here
+  ![profile page](/static/documentation/profile.png)
+
+* 404 Page
+
+  ![404 page](/static/documentation/404.png)
+
+* Add Job
+
+  ![add job page](/static/documentation/addjob.png)
 
 ## Future Features
 

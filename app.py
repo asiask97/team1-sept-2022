@@ -69,6 +69,7 @@ class Jobs(db.Model):
     job_id = db.Column(db.Integer, primary_key = True)    
     created_by = db.Column(db.Integer, db.ForeignKey('users.id'))
     title = db.Column(db.String(200), nullable=False)
+    email = db.Column(db.String(200), nullable=False)
     company = db.Column(db.String(200), nullable=False)
     referenceNo = db.Column(db.String(200))
     description = db.Column(db.Text(), nullable=False)
@@ -118,10 +119,8 @@ def register():
     if request.method == 'POST':
         checkEmail = Users.query.filter_by(email = request.form.get('email')).first()
         userType = ''
-        if(request.form.get('userType')):
-            userType = 'employer'
-        else:
-            userType = 'employee'
+        userType = request.form.get('userType')
+
         print(request.form.get('psw'), request.form.get('psw-repeat'))
         if(request.form.get('psw') != request.form.get('psw-repeat')):
             flash('Passwords did not match') 
@@ -163,7 +162,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('index'))
 
 @app.route('/jobposts', methods = ['GET'])
 def jobposts():   
@@ -221,14 +220,14 @@ def badgeview(id):
         jobs = Jobs.query.filter(Jobs.parttime.is_(True)).order_by(Jobs.datetime.desc())
         return render_template('badgeview.html', jobs=jobs, pagename="Part-time schedule available")
     if id == 11:
+        jobs = Jobs.query.filter(Jobs.fourday.is_(True)).order_by(Jobs.datetime.desc())
+        return render_template('badgeview.html', jobs=jobs, pagename="Four day week")
+    if id == 12:
         jobs = Jobs.query.filter(Jobs.childcare.is_(True)).order_by(Jobs.datetime.desc())
         return render_template('badgeview.html', jobs=jobs, pagename="Childcare")
-    if id == 12:
+    if id == 13:
         jobs = Jobs.query.filter(Jobs.remote_work.is_(True)).order_by(Jobs.datetime.desc())
         return render_template('badgeview.html', jobs=jobs, pagename="Remote work option")
-    if id == 13:
-        jobs = Jobs.query.filter(Jobs.childcare.is_(True)).order_by(Jobs.datetime.desc())
-        return render_template('badgeview.html', jobs=jobs, pagename="Childcare")
     if id == 14:
         jobs = Jobs.query.filter(Jobs.experience_requirements.is_(True)).order_by(Jobs.datetime.desc())
         return render_template('badgeview.html', jobs=jobs, pagename="Realistic experience requirements")
@@ -362,6 +361,7 @@ def addjob():
                     company = request.form.get('company'), 
                     salary = salary, 
                     created_by = current_user.id, 
+                    email=current_user.email,
                     lgbt=lgbt, 
                     genderbalance=genderbalance, 
                     insurance=insurance,

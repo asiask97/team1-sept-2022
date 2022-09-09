@@ -21,13 +21,11 @@ app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 # Add the database 
-if os.environ.get("DEVELOPMENT") == True :
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_URL")
-else:
-    uri = os.environ.get("DATABASE_URL")
-    if uri.startswith("postgres://"):
-        uri = uri.replace("postgres://", "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri  
+uri = os.getenv("DATABASE_URL")  # or other relevant config var
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
+
 
 # folder for images 
 UPLOAD_FOLDER = 'static/images/'

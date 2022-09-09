@@ -52,9 +52,40 @@ Screenshot of home page
 
 
 #### User Stories
+### Some of user stories that got completed 
+
+| #           | User Story      
+| ----------- | ------------- 
+| 1           | As an employee I want to be able to easily find inclusive jobs with the click of a button. 
+| 2           | As an employee I want to be able to delete my account.   
+| 3           | As an employee I want to be able to log in and create a profile to save jobs to my account. 
+| 4           | As an employee I want to be able to have multiple inclusive categories to find one that suits my needs.    
+| 5           | As an employee I want to be able search for jobs by a certain keyword.
+| 6           | As an employee I want to have an easy to navigate website on mobile and desktop. 
+| 7           | As an employee I want to be able to apply to a job with the click of a button. pixels           
+| 8           | As an employee I want to be able to change my email. 
+| 9           | As an employee I want to be able to see what some of the job's titles mean.     
+| 10          | As an employer I want to be able to add jobs with relevant information like refence number or salary. 
+| 11          | As an employer I want to be able to able to delete posted job ads. 
+| 12          | As an employer I want to save job ads to view them later.
+| 13          | As an employer I want to be able to add relevant inclusivity badges to my job posting. 
+| 14          | As an employer I want to delete my account along with all job postings. 
+
+<br/>
+<br/>
 
 
+Some of user stories are planned for next sprint
 
+| #           | User Story      
+| ----------- | ------------- 
+| 1           | As an employee I want to be able to add profile pictures so potential employers can see how I look like. 
+| 2           | As an employer I want to be able to add company logo to my job posts. 
+| 3           | As an employer I want to have access to information about how many people saved my job post. 
+| 4           | As an employer I want to be able to view potential employees CV with one click. 
+
+<br/>
+<br/>
 
 
 #### Agile Management

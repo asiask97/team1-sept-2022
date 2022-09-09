@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
         job.addEventListener('click', handler)
     })
     function handler(e){
+<<<<<<< HEAD
+=======
+        console.log(e.target.classList[4])
+>>>>>>> animation to homepage
         option=''
         if(e.target.innerHTML == 'Save Job'){
             e.target.innerHTML = 'Remove'
@@ -13,8 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
             option='remove'
         }
         var xhr = new XMLHttpRequest();
+<<<<<<< HEAD
         xhr.open('POST', '/jobposts/saved' + '?id=' + e.target.classList[3] + '&option=' + option, true); 
         xhr.send();
+=======
+        xhr.open('POST', '/jobposts/saved' + '?id=' + e.target.classList[4] + '&option=' + option, true); 
+        xhr.send();
+    
+>>>>>>> animation to homepage
     }
     
     const slidingOne = document.querySelector('.slide-in');

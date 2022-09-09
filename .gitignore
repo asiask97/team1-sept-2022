@@ -4,3 +4,4 @@ development.db
 .DS_Store
 .gitpod.yml
 env.py
+dev.py

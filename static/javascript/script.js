@@ -1052,7 +1052,7 @@ function calculate() {
         (jobAfter[resultAfter.value] - jobBefore[resultBefore.value]) /
         jobBefore[resultBefore.value]);
     if (result > 0) {
-        document.getElementById("result").innerHTML = "Icrease salary by " + result.toFixed(1) + "%";
+        document.getElementById("result").innerHTML = "Increase salary by " + result.toFixed(1) + "%";
         // Change style of the result
         document.getElementById("result").style.color = "green";
         document.getElementById("result").style.fontSize = "20px";
@@ -1060,10 +1060,10 @@ function calculate() {
         document.getElementById("result").style.fontWeight = "bold";
     }
     else if (result == 0) {
-        document.getElementById("result").innerHTML = "In average your salaty would be the same";
+        document.getElementById("result").innerHTML = "In average your salary would be the same";
     }
     else {
-        document.getElementById("result").innerHTML = "Decrease by " + result.toFixed(1) + "%";
+        document.getElementById("result").innerHTML = "Decrease salary by " + result.toFixed(1) + "%";
         document.getElementById("result").style.color = "red";
         document.getElementById("result").style.fontSize = "20px";
         document.getElementById("result").style.alignContent = "left";

@@ -11,55 +11,7 @@
     </div>
   </div>
 
-  {% for job in jobs %}
-
- 
-
-
-      <div class="card mb-3" >
-        <div class="row g-0 align-items-center">
-          <div class="col-md-2 bg-success rounded-pill">
-            <div class="card-body text-center ">
-                <h3 class="card-title text-white">{{job.company}}</h3>
-                
-               
-              </div>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-                
-              <h2 class="card-title">{{job.title}}</h2>
-              <p class="card-text">Dublin</p>
-              <p class="card-text">€{{job.salary}}</p>
-              {% if job.parttime %}
-              <a class="btn btn-outline-dark rounded-pill" href="/badgeview/2" role="button">Partime</a>
-          {% endif %}
-
-          {% if job.fourday %}
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/3" role="button">Four Day</a>
-      {% endif %}
-
-      {% if job.childcare %}
-      <a class="btn btn-outline-dark rounded-pill" href="/badgeview/1" role="button">Childcare</a>
-  {% endif %}
-
-             
-            </div>
-          </div>
-          <div class="col-md-2 text-center">
-            <a class="btn btn-lg btn-primary " data-bs-toggle="collapse" href="#collapseExample-{{loop.index}}" role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
-            <a class="btn btn-lg btn-warning my-2 " href="mailto:email@example.com?subject=Apply for {{job.title}} at {{job.company}} - Reference: {{job.referenceNo}}&body=Please fill out your application details here and attach your CV" role="button">Apply</a>
-            <!-- <a class="btn btn-lg btn-danger my-2 " href="" role="button">Delete</a> -->
-          </div>
-        </div>
-      </div>
-      <div class="collapse" id="collapseExample-{{loop.index}}">
-        <div class="card card-body">
-         {{job.description}}
-        </div>
-      </div>
-
-      {% endfor %}
+  {% include 'jobs-snippet.html' %}
      
       
       

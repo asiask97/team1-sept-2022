@@ -12,60 +12,21 @@
   </div>
 
   <div class="text-center">
-
-    <a class="btn btn-outline-primary  m-1 rounded-pill" href="/badgeview/1" role="button">LGBTQIA+ Friendly</a>
-  
+<div class ="d-none d-md-block">
+    <a class="btn btn-outline-primary  m-1 rounded-pill" href="/badgeview/1" role="button">LGBTQIA+ Friendly</a>  
     <a class="btn btn-outline-secondary  m-1 rounded-pill" href="/badgeview/2" role="button" >Gender Balance</a>
-   
-
-
     <a class="btn btn-outline-success  m-1 rounded-pill" href="/badgeview/3" role="button">Family Health Insurance</a>
- 
-
- 
     <a class="btn btn-outline-danger  m-1 rounded-pill" href="/badgeview/4" role="button">Mentor Systen</a>
- 
-
-
     <a class="btn btn-outline-warning  m-1 rounded-pill" href="/badgeview/5" role="button">Zero-Tolerance for Harrassment</a>
-
-
-  
     <a class="btn btn-outline-info  m-1 rounded-pill" href="/badgeview/6" role="button">No Pay Gap</a>
-   
-
-
     <a class="btn btn-outline-dark  m-1 rounded-pill" href="/badgeview/7" role="button">Diverse Interview Panel</a>
-
-
-
     <a class="btn btn-outline-primary  m-1 rounded-pill" href="/badgeview/8" role="button">Open To Bootcamp Grads</a>
-  
-
-  
     <a class="btn btn-outline-success  m-1 rounded-pill" href="/badgeview/9" role="button">Open to Career Gaps</a>
- 
-
-
     <a class="btn btn-outline-danger  m-1 rounded-pill" href="/badgeview/10" role="button">Parttime</a>
- 
-
-
     <a class="btn btn-outline-warning  m-1 rounded-pill" href="/badgeview/11" role="button">Four Day Week</a>
- 
-
-  
     <a class="btn btn-outline-info  m-1 rounded-pill" href="/badgeview/12" role="button">Childcare</a>
-
-
-
     <a class="btn btn-outline-dark  m-1 rounded-pill" href="/badgeview/13" role="button">Remote Work</a>
- 
-
-
     <a class="btn btn-outline-primary  m-1 rounded-pill" href="/badgeview/14" role="button">Realistic Experience Requirements</a>
-
-
     <a class="btn btn-outline-success  m-1 rounded-pill" href="/badgeview/15" role="button">Flexible Hours</a>
     
     {% if current_user.is_authenticated %}
@@ -74,120 +35,35 @@
 
     <a class="btn btn-warning  m-1 rounded-pill" href="/jobposts" role="button">All Jobs</a>
     {% endif %}
-  </div>
-
-  {% for job in jobs %}
-
-  <div class="card mb-3 jobItem rounded-pill">
-    <div class="row g-0 align-items-center">
-      <div class="col-md-2 text-center">
-        <!-- <div class="bg-success">t</div> -->
-        <span class="col-md-5 color--heading">
-          <span class="badge badge-circle bg-success mr-3">{{job.company.0}}</span> 
-        </span>
-      </div>
-      <div class="col-md-6">
-        <div class="card-body">
-          <h5 class="card-title">{{job.company}}</h5>
-          <h3 class="card-title fw-bold">{{job.title}} </h3>
-          <p class="card-text">{{job.location}} €{{ ("%.2f"|format(job.salary)).rstrip('0').rstrip('.') }}</p>
+    </div>
+    <div class="d-md-none">
+      <div class="btn-group">
+        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Job Categories
+        </button>
+        <ul class="dropdown-menu">
          
-          <!-- <p class="card-text"></p> -->
-
-          
-          {% if job.lgbt %}
-          <a class="btn btn-primary badge rounded-pill" href="/badgeview/1" role="button">LGBTQIA+ Friendly</a>
-          {% endif %}
-
-          {% if job.genderbalance %}
-          <a class="btn btn-secondary badge rounded-pill" href="/badgeview/2" role="button" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Gender Balance</a>
-          {% endif %}
-
-          {% if job.insurance %}
-          <a class="btn btn-success badge rounded-pill" href="/badgeview/3" role="button" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Family Health Insurance</a>
-          {% endif %}
-
-          {% if job.mentoring %}
-          <a class="btn btn-danger badge rounded-pill" href="/badgeview/4" role="button">Mentor Systen</a>
-          {% endif %}
-
-          {% if job.zero_harrassment %}
-          <a class="btn btn-warning badge rounded-pill" href="/badgeview/5" role="button">Zero-Tolerance for Harrassment</a>
-          {% endif %}
-
-          {% if job.no_pay_gap %}
-          <a class="btn btn-info badge rounded-pill" href="/badgeview/6" role="button">No Pay Gap</a>
-          {% endif %}
-
-          {% if job.diverse_interview %}
-          <a class="btn btn-dark badge rounded-pill" href="/badgeview/7" role="button">Diverse Interview Panel</a>
-          {% endif %}
-
-          {% if job.open_to_bootcamp %}
-          <a class="btn btn-primary badge rounded-pill" href="/badgeview/8" role="button">Open To Bootcamp Grads</a>
-          {% endif %}
-
-          {% if job.open_to_career_gap %}
-          <a class="btn btn-success badge rounded-pill" href="/badgeview/9" role="button">Open to Career Gaps</a>
-          {% endif %}
-
-          {% if job.parttime %}
-          <a class="btn btn-danger badge rounded-pill" href="/badgeview/10" role="button">Parttime</a>
-          {% endif %}
-
-          {% if job.fourday %}
-          <a class="btn btn-warning badge rounded-pill" href="/badgeview/11" role="button">Four Day Week</a>
-          {% endif %}
-
-          {% if job.childcare %}
-          <a class="btn btn-info badge rounded-pill" href="/badgeview/12" role="button">Childcare</a>
-          {% endif %}
-
-          {% if job.remote_work %}
-          <a class="btn btn-dark badge rounded-pill" href="/badgeview/13" role="button">Remote Work</a>
-          {% endif %}
-
-          {% if job.experience_requirements %}
-          <a class="btn btn-primary badge rounded-pill" href="/badgeview/14" role="button">Realistic Experience Requirements</a>
-          {% endif %}
-
-          {% if job.flexible_hours %}
-          <a class="btn btn-success badge rounded-pill" href="/badgeview/15" role="button">Flexible Hours</a>
-          {% endif %}
-
-
-        </div>
-      </div>
-      <div class="col-md-3 text-center">
-        <div class="btn-group-vertical">
-       
-       
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample-{{loop.index}}"
-          role="button" aria-expanded="false" aria-controls="collapseExample" role="button">View Details</a>
-        <a class="btn  btn-warning "
-          href="mailto:{{job.email}}?subject=Apply for {{job.title}} at {{job.company}} - Reference: {{job.referenceNo}}&body=Please fill out your application details here and attach your CV"
-          role="button">Apply Now!</a>
-
-          {% if current_user.is_authenticated %}
-         {% if current_user.id == job.created_by%}
-        <a class="btn  btn-danger " onclick="return confirm('Are you sure?')" href="/jobposts/delete/{{job.job_id}}" role="button">Delete</a>
-        {% endif %}
-         {% endif %}
-
-        {% if current_user.is_authenticated %}
-        <button class="btn  btn-secondary save_job {{job.job_id}}">{{ job.saved }}</button>
-        {% endif %}
-      </div>
+          <li><a class="dropdown-item" href="/badgeview/1" role="button">LGBTQIA+ Friendly</a> </li> 
+    <li><a class="dropdown-item" href="/badgeview/2" role="button" >Gender Balance</a></li>
+    <li><a class="dropdown-item" href="/badgeview/3" role="button">Family Health Insurance</a></li>
+    <li><a class="dropdown-item" href="/badgeview/4" role="button">Mentor Systen</a></li>
+    <li><a class="dropdown-item" href="/badgeview/5" role="button">Zero-Tolerance for Harrassment</a></li>
+    <li><a class="dropdown-item" href="/badgeview/6" role="button">No Pay Gap</a></li>
+    <li><a class="dropdown-item" href="/badgeview/7" role="button">Diverse Interview Panel</a></li>
+    <li><a class="dropdown-item" href="/badgeview/8" role="button">Open To Bootcamp Grads</a></li>
+    <li><a class="dropdown-item" href="/badgeview/9" role="button">Open to Career Gaps</a></li>
+    <li><a class="dropdown-item" href="/badgeview/10" role="button">Parttime</a></li>
+    <li><a class="dropdown-item" href="/badgeview/11" role="button">Four Day Week</a></li>
+    <li><a class="dropdown-item" href="/badgeview/12" role="button">Childcare</a></li>
+    <li><a class="dropdown-item" href="/badgeview/13" role="button">Remote Work</a></li>
+    <li><a class="dropdown-item" href="/badgeview/14" role="button">Realistic Experience Requirements</a></li>
+    <li><a class="dropdown-item" href="/badgeview/15" role="button">Flexible Hours</a></li>
+        </ul>
       </div>
     </div>
   </div>
-  <div class="collapse" id="collapseExample-{{loop.index}}">
-    <div class="card card-body">
-     <p class="description-body">{{job.description}}</p>
-    </div>
-  </div>
 
-  {% endfor %}
+  {% include 'jobs-snippet.html' %}
 
 </div>
 

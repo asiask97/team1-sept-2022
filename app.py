@@ -118,10 +118,7 @@ def register():
 
     if request.method == 'POST':
         checkEmail = Users.query.filter_by(email = request.form.get('email')).first()
-        userType = ''
         userType = request.form.get('userType')
-
-        print(request.form.get('psw'), request.form.get('psw-repeat'))
         if(request.form.get('psw') != request.form.get('psw-repeat')):
             flash('Passwords did not match') 
             return redirect(url_for('register'))
@@ -244,10 +241,6 @@ def badgeview(id):
 def jobposts_delete(id):
     post_to_delete = Jobs.query.get(id)
     user = Users.query.filter_by(id = post_to_delete.created_by).first()
-    # db.session.delete(post_to_delete)
-    # db.session.commit()
-    # flash('Job post has been deleted.')
-    # return redirect(url_for('jobposts')) 
     if(user.id == current_user.id):
         db.session.delete(post_to_delete)
         db.session.commit()
@@ -324,12 +317,13 @@ def search():
 @app.route('/addjob', methods = ['GET','POST'])
 @login_required
 def addjob():
-    if request.method == 'GET':   
+    if(current_user.userType == 'employee'):
+        return  render_template('404.html')
+
+    if request.method == 'GET':  
         return render_template('addjob.html')
 
     if request.method == 'POST':
-        
-
         lgbt = "lgbt" in request.form
         genderbalance = "genderbalance" in request.form
         insurance = "insurance" in request.form

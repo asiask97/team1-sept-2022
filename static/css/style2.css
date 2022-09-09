@@ -1,6 +1,9 @@
 /*---- Home Page ----*/
+* {
+  box-sizing: border-box;
+}
 .section-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("../assets/images/img-02.jpg");
   height: 50%;
   background-position: center;
@@ -27,4 +30,19 @@ h2:after {
 }
 h2.text-center:after {
   margin: 20px auto;
+}
+
+/* mentor profile */
+.profile-border {
+  border: 4px solid #cddc39;
+  padding: 2px;
+  border-radius: 50%;
+  border-top-color: #ff5722;
+  border-left-color: #ff5722;
+  width: 150px;
+  height: 150px;
+}
+.card-text {
+  font-size: large;
+  font-weight: 500;
 }

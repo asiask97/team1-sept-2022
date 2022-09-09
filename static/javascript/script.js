@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
             e.target.innerHTML = 'Save Job'
             option='remove'
         }
+        console.log(e.target.classList)
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/jobposts/saved' + '?id=' + e.target.classList[4] + '&option=' + option, true); 
+        xhr.open('POST', '/jobposts/saved' + '?id=' + e.target.classList[3] + '&option=' + option, true); 
         xhr.send();
         console.log('send')
     }

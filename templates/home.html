@@ -1,21 +1,32 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="p-5 bg-light rounded-3 section-bg">
+<div class="p-5 bg-light section-bg">
   <div class="container-fluid py-5">
     <h1 class="display-5 fw-bold">Equality Works!</h1>
     <p class="col-md-8 fs-4 text-white">
       Here you can find jobs that cater to you.
     </p>
 
-    <a href="{{ url_for('jobposts') }}" class="btn btn-primary btn-lg" role="button">View Jobs Now</a>
+    <a
+      href="{{ url_for('jobposts') }}"
+      class="btn btn-primary btn-lg"
+      role="button"
+      >View Jobs Now</a
+    >
   </div>
 </div>
 
 <div class="container px-4 py-5">
   <div class="row flex-lg-row-reverse align-items-center g-5">
     <div class="col-10 col-sm-8 col-lg-6">
-      <img src="../static/assets/images/img-01.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
-        width="700" height="500" loading="lazy" />
+      <img
+        src="../static/assets/images/img-01.jpg"
+        class="d-block mx-lg-auto img-fluid"
+        alt="Bootstrap Themes"
+        width="700"
+        height="500"
+        loading="lazy"
+      />
     </div>
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold lh-1 mb-3">What We Do</h1>
@@ -33,11 +44,18 @@
 <div class="container px-4 py-5 slide-in" id="icon-grid">
   <h2 class="pb-2 border-bottom text-center">Badges List</h2>
 
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+  <div
+    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5"
+  >
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark btn-childcare rounded-pill" href="/badgeview/12" role="button">Childcare</a>
+          <a
+            class="btn btn-outline-dark btn-childcare rounded-pill"
+            href="#"
+            role="button"
+            >Childcare</a
+          >
         </h4>
         <p>After-work childcare available.</p>
       </div>
@@ -46,7 +64,12 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark btn-lgbtqia rounded-pill" href="/badgeview/1" role="button">LGBTQIA+</a>
+          <a
+            class="btn btn-outline-dark btn-lgbtqia rounded-pill"
+            href="/badgeview/1"
+            role="button"
+            >LGBTQIA+</a
+          >
         </h4>
         <p>Friendly to LGBTQIA+.</p>
       </div>
@@ -55,7 +78,12 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/2" role="button">Gender Balance</a>
+          <a
+            class="btn btn-outline-dark rounded-pill"
+            href="/badgeview/2"
+            role="button"
+            >Gender Balance</a
+          >
         </h4>
         <p>Close to equal male to female ratio.</p>
       </div>
@@ -64,7 +92,12 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/3" role="button">Family Health Insurance</a>
+          <a
+            class="btn btn-outline-dark rounded-pill"
+            href="/badgeview/3"
+            role="button"
+            >Family Health Insurance</a
+          >
         </h4>
         <p>Cares about health of your family.</p>
       </div>
@@ -73,7 +106,12 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/7" role="button">Diverse Interview Panel</a>
+          <a
+            class="btn btn-outline-dark rounded-pill"
+            href="/badgeview/7"
+            role="button"
+            >Diverse Interview Panel</a
+          >
         </h4>
         <p>Inclusive interviews.</p>
       </div>
@@ -82,7 +120,12 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/4" role="button">Mentor System</a>
+          <a
+            class="btn btn-outline-dark rounded-pill"
+            href="/badgeview/4"
+            role="button"
+            >Mentor System</a
+          >
         </h4>
         <p>Mentoring available.</p>
       </div>
@@ -91,17 +134,26 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/5" role="button">Zero-tolerance harrassment
-            policy</a>
+          <a
+            class="btn btn-outline-dark rounded-pill"
+            href="/badgeview/5"
+            role="button"
+            >Zero-tolerance harrassment policy</a
+          >
         </h4>
-        <p>Policies that ensure no harassment. </p>
+        <p>Policies that ensure no harassment.</p>
       </div>
     </div>
 
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/6" role="button">No pay gap</a>
+          <a
+            class="btn btn-outline-dark rounded-pill"
+            href="/badgeview/6"
+            role="button"
+            >No pay gap</a
+          >
         </h4>
         <p>Equal pay.</p>
       </div>
@@ -110,8 +162,12 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/8" role="button">Bootcamp/conversion
-            graduates</a>
+          <a
+            class="btn btn-outline-dark rounded-pill"
+            href="/badgeview/8"
+            role="button"
+            >Bootcamp/conversion graduates</a
+          >
         </h4>
         <p>Values people not degrees.</p>
       </div>
@@ -120,7 +176,12 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/9" role="button">Open to Career Gaps</a>
+          <a
+            class="btn btn-outline-dark rounded-pill"
+            href="/badgeview/9"
+            role="button"
+            >Open to Career Gaps</a
+          >
         </h4>
         <p>Gap in CV wont be a problem.</p>
       </div>
@@ -129,7 +190,12 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark btn-flexible rounded-pill" href="/badgeview/15" role="button">Flexible</a>
+          <a
+            class="btn btn-outline-dark btn-flexible rounded-pill"
+            href="/badgeview/15"
+            role="button"
+            >Flexible</a
+          >
         </h4>
         <p>Flexible schedule</p>
       </div>
@@ -138,8 +204,12 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark rounded-pill" href="/badgeview/14" role="button">Realistic experience
-            requirements</a>
+          <a
+            class="btn btn-outline-dark rounded-pill"
+            href="/badgeview/14"
+            role="button"
+            >Realistic experience requirements</a
+          >
         </h4>
         <p>No '5 years of expirnace' in 2 year old framework requirements.</p>
       </div>
@@ -148,17 +218,23 @@
     <div class="col d-flex align-items-start">
       <div>
         <h4 class="fw-bold mb-0">
-          <a class="btn btn-outline-dark btn-remote rounded-pill" href="/badgeview/13" role="button">Remote</a>
+          <a
+            class="btn btn-outline-dark btn-remote rounded-pill"
+            href="/badgeview/13"
+            role="button"
+            >Remote</a
+          >
         </h4>
         <p>Remote work available.</p>
       </div>
     </div>
-
   </div>
 </div>
 
 <div class="container my-5 slide-in-two">
-  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+  <div
+    class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
+  >
     <div class="p-3 p-lg-5 pt-lg-3 text-center">
       <h1 class="display-5 lh-1">Salary Calculator</h1>
       <p class="lead">
@@ -166,19 +242,32 @@
         here.
       </p>
       <form>
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select-before">
+        <select
+          class="form-select form-select-lg mb-3"
+          aria-label=".form-select-lg example"
+          id="select-before"
+        >
           <!-- Added by script -->
         </select>
 
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="select-after">
+        <select
+          class="form-select form-select-lg mb-3"
+          aria-label=".form-select-lg example"
+          id="select-after"
+        >
           <!-- Added by script -->
         </select>
       </form>
       <p class="m-3"></p>
       <div class="">
         <!-- call the calculate function -->
-        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
-          onclick="calculate()">Calculate</button>
+        <button
+          type="button"
+          class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+          onclick="calculate()"
+        >
+          Calculate
+        </button>
         <p class="m-3"></p>
         <div id="result">
           <!-- Added result by script -->
@@ -229,5 +318,9 @@
 </div>
 
 {% endblock %} {% block stylesheet %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style2.css') }}" />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='css/style2.css') }}"
+/>
 {% endblock stylesheet %}

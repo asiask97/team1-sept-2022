@@ -369,6 +369,7 @@ def addjob():
         remote_work = "remote_work" in request.form
         experience_requirements = "experience_requirements" in request.form
         flexible_hours = "flexible_hours" in request.form
+        job_sharing = "jobshare" in request.form
         
         salary = 0.0
         if(request.form.get('salary')):

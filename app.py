@@ -23,11 +23,11 @@ def favicon():
 # Add the database 
 if os.environ.get("DEVELOPMENT") == True :
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.ge("DB_URL")
-else:
+"""else:
     uri = os.environ.get("DATABASE_URL")
     if uri.startswith("postgres://"):
         uri = uri.replace("postgres://", "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri  
+    app.config["SQLALCHEMY_DATABASE_URI"] = uri  """
 
 # folder for images 
 UPLOAD_FOLDER = 'static/images/'

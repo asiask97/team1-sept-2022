@@ -3,10 +3,10 @@
 
 /*---- LOGIN ----*/
 
-#login_from {
+/* #login_from {
   margin-top: 20vh;
   margin-bottom: 20vh;
-}
+} */
 #warning {
   margin-top: 1em;
 }
@@ -15,7 +15,7 @@
 }
 
 /*---- REGISTER ----*/
-#register_form {
+/* #register_form {
   margin-top: 15vh;
   margin-bottom: 15vh;
 }
@@ -28,13 +28,13 @@
 }
 #register_form a {
   color: rgb(255, 193, 7);
-}
+} */
 
 /*---- ADD JOB ----*/
-#add_job_form {
+/* #add_job_form {
   margin-top: 10vh;
   margin-bottom: 10vh;
-}
+} */
 
 /*---- VIEW JOB ----*/
 .jobItem {

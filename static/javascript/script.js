@@ -1049,7 +1049,7 @@ for (let key in jobBefore){
         var opt = document.createElement('option');
         opt.value = key;
         opt.innerHTML = key;
-        selectBefore.appendChild(opt);s
+        selectBefore.appendChild(opt);
     }
 }
 // List of all the jobs on select careers after

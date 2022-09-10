@@ -42,7 +42,7 @@ h2.text-center:after {
   width: 150px;
   height: 150px;
 }
-.card-text {
+.role-title {
   font-size: large;
   font-weight: 500;
 }
@@ -101,7 +101,7 @@ h2.text-center:after {
   width: 275px;
   height: 230px;
 }
-.card-body {
+.role-holder {
   height: 60px;
   background-color: #b6dfe0;
 }

@@ -11,11 +11,9 @@ Equality Works gives employers a chance to show off their inclusive policies and
 
 <br>
 
-Screenshot of home page
+![home page](/static/documentation/screenshot.png)
 
-[Visit the live website on Heroku here](-)
-
-
+[Visit the live website on Heroku here](https://equality-works.herokuapp.com/)
 
 <br>
 
@@ -121,8 +119,6 @@ Here you can see our Kanban board mid sprint
 ![Kanban board mid sprit](/static/documentation/kanban.png)
 
 
-
-
 ### Scope
 After having analyzed user stories as a team we have developed a high-level view of what our project should contain and how it should be structured to be the most efficient and easy to navigate. We have decided on the fallowing technical features: 
 
@@ -152,10 +148,6 @@ After a team meeting, we decided on a relational database. Our database system c
 
 ![databse shema](/static/documentation/database.png)
 
- 
-
-<img of databse shema> 
-
 ### Skeleton
 
 #### Wireframes
@@ -165,24 +157,8 @@ All wireframes were designed base on mobile first principle, along side with a t
 ![landing-page](/static/documentation/wireframes/login-page.png)
 ![landing-page](/static/documentation/wireframes/job-listing-page.png)
 
-### Surface
-
-* Fonts - 
-
-
-* Images - 
-
-
-* Colours - 
-
-
-
-
 ## Features
  Equality works has many useful and interesting features which will help reduce or even eliminate the gender gap in IT. The gender gap starts off with many workplaces being not inclusive enough to women and other minorities in IT. Equality Works is a job posting platform which helps to reduce the gender gap by promoting inclusive working environments. We are hoping that employees will be encouraged by badges to become a more attractive workplace for all and gain higher visibility on the platform as the users are encouraged to search by badge type which suits their current needs. 
-
-### Employee Features
-
 
 #### **Homepage**
 Equality Works home page has a modern and flesh look. Every bit of text is easily readable and the slide in animations adds in some interaction as the user explores the page.  
@@ -196,7 +172,8 @@ Equality Works home page has a modern and flesh look. Every bit of text is easil
 - At the bottom of the home page the user can find more information on why this project was created and how we are planning to help women and minorities reduce the gender gap. 
 screenshot here
 
-====================================== ADD SCRENSHOTS OF EACH SECTION  =========================================
+![home page](/static/documentation/homepage.png)
+ 
 #### **Jobs**  
 The job listings page is the essence of Equality Works. 
 
@@ -209,13 +186,13 @@ The job listings page is the essence of Equality Works.
 - Apply now! Button lets user apply to a job with just one single click! 
 screenshot here
 
+![home page](/static/documentation/viewjobs.png)
+
 #### **Resources**  
+![home page](/static/documentation/resource.png)
 
 
 #### **Create new job listing**
-
-
-#### **Mentors**
 
 
 #### **Support Pages**
@@ -246,15 +223,6 @@ There are a number of features which the team plans to implement in the future. 
 * Social Media Integration - for users, social media sign-in could be integrated, allowing the use of a Google or Facebook account to log in to the site. Social media share buttons could be added to job posts to allow easy sharing, and with the use of the Twitter API new job posts could be automatically posted to social media channels.
 * Application Management - Since we have profiles for both employees and employers, we could also build functionality to manage the creation and tracking of job applications, providing a central admin interface for employers to screen and select interview candidates.
 * Issues Tackled - the site is focussed on tackling a number of important issues which affect the gender balance of jobs in tech. After the site has been in use and user feedback has been collected, these topics could be refined and expanded upon.
-
-
-## Search Engine Optimization
-
-Description of meta-tags and any keyword research
-
-
-
-
 
 ## Technologies Used
 
@@ -288,15 +256,7 @@ Description of meta-tags and any keyword research
 * Heroku
     * The project was deployed using Heroku's cloud-based platform
 * Heroku PostgreSQL
-    * description
-* HTML
-    * description
-* CSS
-    * description
-* Bootstrap
-    * description
-* Font Awesome
-    * description
+    * Project uses PostgreSQL on heroku cloud as database.
 
 
 #### Other Resources Used
@@ -305,25 +265,15 @@ Description of meta-tags and any keyword research
 * [Gitpod](https://gitpod.io) 
     * Gitpod was the development environment for this site and linked to Github for storage and deployment.
 
-
-
 ## Testing
-
-User testing described here
-
+Throughout the projects we made sure that every button was working, and every external link opens in a new tab. We manually tested every functionality like Save Jobs feature on each job posting. We used Chrome Lighthouse report to see where improvements can be made. 
+* [CSS Validation](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fequality-works.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) 
+* [HTML Validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fequality-works.herokuapp.com%2F) 
 
 ## Notable Bugs
-
-Any outstanding bugs here
-
+We found that HTML Homepage has some HTML errors that we didnt have time to fix. They can be fixed by updating image attributes.
 
 # Deployment
-
-## Creating the Project
-1. A new repository was created for the project on GitHub by clicking 'New Repository' on the GitHub user page, giving a name to the project.
-1. The GitPod link created by the Chrome extension was clicked on the Code Institute Python template found [here](https://github.com/Code-Institute-Org/python-essentials-template).
-1. This created a virtual workspace which was then linked to my GitHub account.
-1. After writing code for the project, I used git commands add, commit and push which sent all the project files from GitPod to my GitHub repository.
 
 ## Deploying to Heroku
 The project was deployed on the Heroku site by using these steps:
@@ -335,13 +285,10 @@ The project was deployed on the Heroku site by using these steps:
 1. Search in the Add-ons search box for Heroku Postgres.
 1. Select the Heroku Postgres Add on from the results list and accept the hobby level tier.
 1. Click on the settings tab and go to the hidden variables section.
-1. Here you can add your SECRET_KEY variable which is hidden within the env.py in your Django project. It is a good idea to generate a new secret key rather than using the default one.
+1. Here you can add your SECRET_KEY variable which is hidden within the env.py in your Falsk project. It is a good idea to generate a new secret key rather than using the default one.
 1. Make a note of the DATABASE_URL so that you can use it in your own env.py to connect directly to the Heroku databse during development.
-1. You can also add a key for static storage such as Cloudinary or S3.
 1. Click the Deploy tab in Heroku.
 1. Connect your project to your Github Repository and select automatic deployment. This will deploy your project after every time you push your changes to Github.
-1. For an e-commerce project such as this, you will need to use Stripe or another payment provider. 
-1. Once you sign up with a payment provider, add their API keys to the secret variables section on Heroku and in your own env.py file.
 
 
 ## Local Deployment
@@ -352,26 +299,14 @@ The project was deployed on the Heroku site by using these steps:
 1. Click on the 'Fork' icon on the upper right hand side of the screen.
 1. This makes a copy of the code in your own repo so you can examine it or open it in an IDE.
 
-
-
 # Credits
-
-## Code
-
-## Data
 
 ## Pictures
 
-* Taken from ...
-
+* Taken from 
+[Upsplash](https://unsplash.com/)
 
 ## Coding Inspiration
 
 [Youtube - codemy.com](https://www.youtube.com/watch?v=0Qxtt4veJIc&list=PLCC34OHNcOtolz2Vd9ZSeSXWc8Bq23yEz&ab_channel=Codemy.com) - Walk through building a simple blog. <br>
 
-
-
-
-# Acknowledgements
-
-* 

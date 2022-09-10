@@ -184,69 +184,86 @@ def jobposts():
 @app.route('/badgeview/<int:id>', methods = ['GET'])
 def badgeview(id):
 
-    jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
+    '''jobs = Jobs.query.order_by(Jobs.datetime.desc()).all()
     for job in jobs:
         user = Users.query.filter_by(id = job.created_by).first()
         job.username = user.name
-    
-    
-    for job in jobs:
-        user = Users.query.filter_by(id = job.created_by).first()
-        job.username = user.name
-        if(current_user.is_authenticated):
-            savedjobs = Savedjobs.query.filter_by(job_id = job.job_id, user_id = current_user.id).first()
-            if(savedjobs):
-                job.saved = 'Remove'
-            else:
-                job.saved = 'Save Job'
+    '''
+    def addSave(jobs): 
+        for job in jobs:
+            user = Users.query.filter_by(id = job.created_by).first()
+            job.username = user.name
+            if(current_user.is_authenticated):
+                savedjobs = Savedjobs.query.filter_by(job_id = job.job_id, user_id = current_user.id).first()
+                if(savedjobs):
+                    job.saved = 'Remove'
+                else:
+                    job.saved = 'Save Job'
+        return jobs
 
     if id == 1:
         jobs = Jobs.query.filter(Jobs.lgbt.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="LGBTQIA+ Friendly")
     if id == 2:
         jobs = Jobs.query.filter(Jobs.genderbalance.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Good gender balance in workplace")
     if id == 3:
         jobs = Jobs.query.filter(Jobs.insurance.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Family Health Insurance")
     if id == 4:
         jobs = Jobs.query.filter(Jobs.mentoring.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Mentor System")
     if id == 5:
         jobs = Jobs.query.filter(Jobs.zero_harrassment.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Zero-tolerance harrassment policy")
     if id == 6:
         jobs = Jobs.query.filter(Jobs.no_pay_gap.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="No pay gap")
     if id == 7:
         jobs = Jobs.query.filter(Jobs.diverse_interview.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Diverse Interview Panel")
     if id == 8:
         jobs = Jobs.query.filter(Jobs.open_to_bootcamp.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Open to bootcamp/conversion graduates")
     if id == 9:
         jobs = Jobs.query.filter(Jobs.open_to_career_gap.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Open to applicants with a career gap")
     if id == 10:
         jobs = Jobs.query.filter(Jobs.parttime.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Part-time schedule available")
     if id == 11:
         jobs = Jobs.query.filter(Jobs.fourday.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Four day week")
     if id == 12:
         jobs = Jobs.query.filter(Jobs.childcare.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Childcare")
     if id == 13:
         jobs = Jobs.query.filter(Jobs.remote_work.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Remote work option")
     if id == 14:
         jobs = Jobs.query.filter(Jobs.experience_requirements.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Realistic experience requirements")
     if id == 15:
         jobs = Jobs.query.filter(Jobs.flexible_hours.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Flexible hours")
     if id == 16:
         jobs = Jobs.query.filter(Jobs.flexible_hours.is_(True)).order_by(Jobs.datetime.desc())
+        jobs = addSave(jobs)
         return render_template('badgeview.html', jobs=jobs, pagename="Job sharing")
 
     

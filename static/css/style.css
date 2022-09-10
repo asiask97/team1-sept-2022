@@ -133,3 +133,9 @@
 .view-job {
   margin-left: 2rem;
 }
+@media screen and (max-width: 480px) {
+  .tag-line {
+    margin-top: -30%;
+    font-size: 3rem;
+  }
+}

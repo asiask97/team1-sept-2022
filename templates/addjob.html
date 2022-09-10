@@ -7,17 +7,17 @@
 
 <div class="row justify-content-center my-5">
   <div class="col-sm-10 col-md-8 my-3">
-  
+
     <form action="/addjob" method="POST" id="add_job_form">
       <h1>Add Job Offer</h1>
       <p>Please fill in this form to create add Job Offer.</p>
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" name="title" id="title" >
+        <input type="text" class="form-control" name="title" id="title">
       </div>
       <div class="mb-3">
         <label for="title" class="form-label">Company</label>
-        <input type="text" class="form-control" name="company" id="company" >
+        <input type="text" class="form-control" name="company" id="company">
       </div>
       <div class="mb-3">
         <label for="location" class="form-label">Location</label>
@@ -30,7 +30,7 @@
         </div>
         <div class="col">
           <label for="refnum" class="form-label">Reference Number</label>
-          <input type="text" class="form-control" name="refnum" id="refnum" >
+          <input type="text" class="form-control" name="refnum" id="refnum">
         </div>
       </div>
       <div class="mb-3">
@@ -38,84 +38,89 @@
         <textarea class="form-control" id="discription" rows="3" name="discription"></textarea>
       </div>
       <div class="mb-3 text-center">
-       
-    
+
+
         <input type="checkbox" class="btn-check" id="lgbt" name="lgbt" autocomplete="off">
-    <label class="btn btn-outline-primary m-1" for="lgbt">LGBTQIA+ Friendly</label>
-    
-        
-    
+        <label class="btn btn-outline-primary m-1" for="lgbt">LGBTQIA+ Friendly</label>
+
+
+
         <input type="checkbox" class="btn-check" id="genderbalance" name="genderbalance" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="genderbalance">Good Gender Balance</label>
-        
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="insurance" name="insurance" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="insurance">Family Health Insurance</label>
-    
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="mentoring" name="mentoring" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="mentoring">Mentoring Available</label>
-    
-       
+
+
         <input type="checkbox" class="btn-check" id="zero_harrassment" name="zero_harrassment" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="zero_harrassment">Zero Tolerance for Harrassmnent</label>
-        
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="no_pay_gap" name="no_pay_gap" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="no_pay_gap">No Pay Gap</label>
-    
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="diverse_interview" name="diverse_interview" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="diverse_interview">Diverse Interview Panel</label>
-    
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="open_to_bootcamp" name="open_to_bootcamp" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="open_to_bootcamp">Open to Bootcamp/Conversion Graduates</label>
-        
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="open_to_career_gap" name="open_to_career_gap" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="open_to_career_gap">Open to Applicants With Career Gap</label>
-    
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="parttime" name="parttime" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="parttime">Part Time</label>
-    
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="fourday" name="fourday" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="fourday">4 Day Week</label>
-        
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="childcare" name="childcare" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="childcare">Childcare available</label>
-    
-       
-    
+
+
+
         <input type="checkbox" class="btn-check" id="remote_work" name="remote_work" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="remote_work">Remote Work Option</label>
-    
-       
-    
-        <input type="checkbox" class="btn-check" id="experience_requirements" name="experience_requirements" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="experience_requirements">Realistic Experience Requirements</label>
-        
-       
-    
+
+
+
+        <input type="checkbox" class="btn-check" id="experience_requirements" name="experience_requirements"
+          autocomplete="off">
+        <label class="btn btn-outline-primary m-1" for="experience_requirements">Realistic Experience
+          Requirements</label>
+
+        <input type="checkbox" class="btn-check" id="flexible_hours" name="flexible_hours" autocomplete="off">
+        <label class="btn btn-outline-primary m-1" for="flexible_hours" data-bs-toggle="popover" data-bs-trigger="hover"
+          data-bs-content="Explanation about the flexible ours goes here">Flexible Hours</label>
+
+
         <input type="checkbox" class="btn-check" id="flexible_hours" name="flexible_hours" autocomplete="off">
         <label class="btn btn-outline-primary m-1" for="flexible_hours">Flexible Hours</label>
       </div>
       <button type="submit" class="btn btn-warning">Submit</button>
     </form>
-    
-  
+
+
   </div>
-  </div>
+</div>
 {% endblock %}

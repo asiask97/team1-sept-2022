@@ -172,7 +172,7 @@ Equality Works home page has a modern and flesh look. Every bit of text is easil
 - At the bottom of the home page the user can find more information on why this project was created and how we are planning to help women and minorities reduce the gender gap. 
 screenshot here
 
-![home page](/static/documentation/homepage.png)
+![home page](/static/assets/images/documentation/homepage.png)
  
 #### **Jobs**  
 The job listings page is the essence of Equality Works. 
@@ -186,14 +186,10 @@ The job listings page is the essence of Equality Works.
 - Apply now! Button lets user apply to a job with just one single click! 
 screenshot here
 
-![home page](/static/documentation/viewjobs.png)
+![jobs page](/static/assets/images/documentation/viewjobs.png)
 
 #### **Resources**  
-![home page](/static/documentation/resource.png)
-
-
-#### **Create new job listing**
-
+![home page](/static/assets/images/documentation/resource.png)
 
 #### **Support Pages**
 * Login

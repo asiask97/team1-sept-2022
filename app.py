@@ -4,11 +4,15 @@ from flask_marshmallow import Marshmallow, fields
 from flask_cors import CORS
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from pathlib import Path
 import uuid
 import datetime
 import itertools
 import os
 import re
+
+if os.path.isfile("env.py"):
+    import env
 
 app = Flask(__name__)
 CORS(app)
@@ -17,13 +21,12 @@ app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),'favicon.ico', mimetype='image/vnd.microsoft.icon')
 # Add the database 
-if os.environ.get("DEVELOPMENT") == True :
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.ge("DB_URL")
-else:
-    uri = os.environ.get("DATABASE_URL")
-    if uri.startswith("postgres://"):
-        uri = uri.replace("postgres://", "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = uri  
+
+
+uri = os.environ.get("DATABASE_URL")
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
+app.config["SQLALCHEMY_DATABASE_URI"] = uri
 
 # folder for images 
 UPLOAD_FOLDER = 'static/images/'

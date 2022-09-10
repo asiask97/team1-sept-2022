@@ -267,7 +267,7 @@ Throughout the projects we made sure that every button was working, and every ex
 * [HTML Validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fequality-works.herokuapp.com%2F) 
 
 ## Notable Bugs
-We found that HTML Homepage has some HTML errors that we didnt have time to fix. They can be fixed by updating image attributes.
+We found that HTML Homepage has some HTML errors that we didnt have time to fix. They can be fixed by updating image attributes. We tested the layouts on our mobile and desktop. We also used Chrome developer tools to test responsivness.
 
 # Deployment
 

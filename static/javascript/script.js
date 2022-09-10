@@ -17,9 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send();
     }
     
-    const slidingOne = document.querySelector('.slide-in');
     const slidingTwo = document.querySelector('.slide-in-two');
-    const slidingThree = document.querySelector('.slide-in-three');
     
     window.addEventListener('scroll', () => {
         const {scrollTop, clientHeight} = document.documentElement;
@@ -1076,7 +1074,7 @@ function calculate() {
 
     var result = Number(100 *
         (jobAfter[resultAfter.value] - jobBefore[resultBefore.value]) /
-        jobBefore[resultBefore.value]);
+        jobBefore[resultBefore.value]);ß
     if (result > 0) {
         document.getElementById("result").innerHTML = "Increase salary by " + result.toFixed(1) + "%";
         // Change style of the result

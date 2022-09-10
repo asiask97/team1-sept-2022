@@ -1069,7 +1069,7 @@ function calculate() {
 
     var result = Number(100 *
         (jobAfter[resultAfter.value] - jobBefore[resultBefore.value]) /
-        jobBefore[resultBefore.value]);ß
+        jobBefore[resultBefore.value]);
     if (result > 0) {
         document.getElementById("result").innerHTML = "Increase salary by " + result.toFixed(1) + "%";
         // Change style of the result

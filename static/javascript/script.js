@@ -1050,19 +1050,24 @@ const jobBefore = {
 
 // List of all the jobs on select careers before
 const selectBefore = document.getElementById('select-before');
-for (let key in jobBefore){
-    var opt = document.createElement('option');
-    opt.value = key;
-    opt.innerHTML = key;
-    selectBefore.appendChild(opt);
+if (selectBefore != null) {
+
+    for (let key in jobBefore) {
+        var opt = document.createElement('option');
+        opt.value = key;
+        opt.innerHTML = key;
+        selectBefore.appendChild(opt);
+    }
 }
 // List of all the jobs on select careers after
 const selectAfter = document.getElementById('select-after');
-for (let key in jobAfter){
-    var opt = document.createElement('option');
-    opt.value = key;
-    opt.innerHTML = key;
-    selectAfter.appendChild(opt);
+if (selectAfter != null) {
+    for (let key in jobAfter) {
+        var opt = document.createElement('option');
+        opt.value = key;
+        opt.innerHTML = key;
+        selectAfter.appendChild(opt);
+    }
 }
 
 function calculate() {
@@ -1089,6 +1094,14 @@ function calculate() {
         document.getElementById("result").style.fontSize = "20px";
         document.getElementById("result").style.alignContent = "left";
         document.getElementById("result").style.fontWeight = "bold";
-    }
-        
+    }       
 }
+// Activate popover everywhere javascript
+
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})
+
+
+

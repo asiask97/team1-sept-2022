@@ -1043,8 +1043,9 @@ const jobBefore = {
 
 // List of all the jobs on select careers before
 const selectBefore = document.getElementById('select-before');
-for (let key in jobBefore){
-    if(selectBefore){
+if (selectBefore != null) {
+
+    for (let key in jobBefore) {
         var opt = document.createElement('option');
         opt.value = key;
         opt.innerHTML = key;
@@ -1053,8 +1054,8 @@ for (let key in jobBefore){
 }
 // List of all the jobs on select careers after
 const selectAfter = document.getElementById('select-after');
-for (let key in jobAfter){
-    if(jobAfter){
+if (selectAfter != null) {
+    for (let key in jobAfter) {
         var opt = document.createElement('option');
         opt.value = key;
         opt.innerHTML = key;
@@ -1068,7 +1069,7 @@ function calculate() {
 
     var result = Number(100 *
         (jobAfter[resultAfter.value] - jobBefore[resultBefore.value]) /
-        jobBefore[resultBefore.value]);
+        jobBefore[resultBefore.value]);ß
     if (result > 0) {
         document.getElementById("result").innerHTML = "Increase salary by " + result.toFixed(1) + "%";
         // Change style of the result
@@ -1086,6 +1087,11 @@ function calculate() {
         document.getElementById("result").style.fontSize = "20px";
         document.getElementById("result").style.alignContent = "left";
         document.getElementById("result").style.fontWeight = "bold";
-    }
-        
+    }       
 }
+// Activate popover everywhere javascript
+
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})

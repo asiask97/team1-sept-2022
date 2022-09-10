@@ -41,9 +41,7 @@
         {% endif %}
          {% endif %}
 
-         {% if current_user.is_authenticated %}
-         <button class="btn  btn-secondary save_job {{job.job_id}}">{{ job.saved }}</button>
-         {% endif %}
+       
       </div>
       </div>
     </div>
@@ -74,9 +72,7 @@
         <a class="btn  btn-danger " onclick="return confirm('Are you sure?')" href="/jobposts/delete/{{job.job_id}}" role="button">Delete</a>
         {% endif %}
          {% endif %}
-         {% if current_user.is_authenticated %}
-         <button class="btn  btn-secondary save_job {{job.job_id}}">{{ job.saved }}</button>
-         {% endif %}
+
        
       </div>
     </div>

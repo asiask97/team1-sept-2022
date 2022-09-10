@@ -21,18 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', () => {
         const {scrollTop, clientHeight} = document.documentElement;
-        const topElementToTopViewport = slidingOne.getBoundingClientRect().top;
-        if(scrollTop > (scrollTop + topElementToTopViewport).toFixed() - clientHeight * 0.8){
-            slidingOne.classList.add('active')
-        }
+        
         const topElementToTopViewport2 = slidingTwo.getBoundingClientRect().top;
         if(scrollTop > (scrollTop + topElementToTopViewport2).toFixed() - clientHeight * 0.8){
             slidingTwo.classList.add('active')
         }
-        const topElementToTopViewport3 = slidingThree.getBoundingClientRect().top;
-        if(scrollTop > (scrollTop + topElementToTopViewport3).toFixed() - clientHeight * 0.8){
-            slidingThree.classList.add('active')
-        }
+        
     })
 }, false);
 

@@ -2,10 +2,13 @@
 
 
 {% block content %}
-  <form action="/register" method="POST" id="register_form"> 
+<div class="row justify-content-center my-5">
+<div class="col-sm-10 col-md-6">
+
+<form action="/register" method="POST" id="register_form"> 
     <h1>Register</h1>
     <div class="mb-3">
-      <label for="compnay" class="form-label">Compnay Name or Your Name</label>
+      <label for="compnay" class="form-label">Company Name or Your Name</label>
       <input type="text" class="form-control" name="compnay" id="compnay" aria-describedby="emailHelp" required>
     </div>
     <div class="mb-3">
@@ -33,4 +36,7 @@
       <p>Already have an account? <a href="/login">Sign in</a>.</p>
     </div>
   </form>
+
+</div>
+</div>
 {% endblock %}

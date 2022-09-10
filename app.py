@@ -87,8 +87,7 @@ class Jobs(db.Model):
     childcare = db.Column(db.Boolean, default=False, nullable=False)
     remote_work = db.Column(db.Boolean, default=False, nullable=False)
     experience_requirements = db.Column(db.Boolean, default=False, nullable=False)
-    flexible_hours = db.Column(db.Boolean, default=False, nullable=False)
-    job_shareing = db.Column(db.Boolean, default=False, nullable=False)
+    job_sharing = db.Column(db.Boolean, default=False, nullable=False)
 
 class Savedjobs(db.Model):
     savedjobs_id = db.Column(db.Integer, primary_key = True)   
@@ -242,10 +241,9 @@ def badgeview(id):
     if id == 15:
         jobs = Jobs.query.filter(Jobs.flexible_hours.is_(True)).order_by(Jobs.datetime.desc())
         return render_template('badgeview.html', jobs=jobs, pagename="Flexible hours")
-     if id == 1:
+    if id == 16:
         jobs = Jobs.query.filter(Jobs.flexible_hours.is_(True)).order_by(Jobs.datetime.desc())
         return render_template('badgeview.html', jobs=jobs, pagename="Job sharing")
-
     
     if request.method == 'GET':
         return render_template('badgeview.html', jobs=jobs)
@@ -255,6 +253,7 @@ def badgeview(id):
 def jobposts_delete(id):
     post_to_delete = Jobs.query.get(id)
     user = Users.query.filter_by(id = post_to_delete.created_by).first()
+
     if(user.id == current_user.id):
         db.session.delete(post_to_delete)
         db.session.commit()

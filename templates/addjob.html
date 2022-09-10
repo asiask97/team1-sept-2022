@@ -1,128 +1,305 @@
-{% extends "base.html" %}
-
-
-{% block content %}
-
-
-
+{% extends "base.html" %} {% block content %}
 <div class="row justify-content-center my-5">
   <div class="col-sm-10 col-md-8 my-3">
-
     <form action="/addjob" method="POST" id="add_job_form">
       <h1>Add Job Offer</h1>
       <p>Please fill in this form to create add Job Offer.</p>
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" name="title" id="title">
+        <input type="text" class="form-control" name="title" id="title" />
       </div>
       <div class="mb-3">
         <label for="title" class="form-label">Company</label>
-        <input type="text" class="form-control" name="company" id="company">
+        <input type="text" class="form-control" name="company" id="company" />
       </div>
       <div class="mb-3">
         <label for="location" class="form-label">Location</label>
-        <input type="text" class="form-control" name="location" id="location">
+        <input type="text" class="form-control" name="location" id="location" />
       </div>
       <div class="row">
         <div class="col">
           <label for="salary" class="form-label">Salary</label>
-          <input type="number" class="form-control" name="salary" id="salary">
+          <input type="number" class="form-control" name="salary" id="salary" />
         </div>
         <div class="col">
           <label for="refnum" class="form-label">Reference Number</label>
-          <input type="text" class="form-control" name="refnum" id="refnum">
+          <input type="text" class="form-control" name="refnum" id="refnum" />
         </div>
       </div>
       <div class="mb-3">
         <label for="discription" class="form-label">Description</label>
-        <textarea class="form-control" id="discription" rows="3" name="discription"></textarea>
+        <textarea
+          class="form-control"
+          id="discription"
+          rows="3"
+          name="discription"
+        ></textarea>
       </div>
       <div class="mb-3 text-center">
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="lgbt"
+          name="lgbt"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="LGBTQIA+"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="In today's workplace, ensuring that diversity, equity and inclusion efforts
+        include individuals who are lesbian, gay, bisexual, transgender and queer (LGBTQIA+)
+        is essential for business success."
+          >LGBTQIA+</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="genderbalance"
+          name="genderbalance"
+          autocomplete="off"
+        />
 
-
-        <input type="checkbox" class="btn-check" id="lgbt" name="lgbt" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="lgbt">LGBTQIA+ Friendly</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="genderbalance" name="genderbalance" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="genderbalance">Good Gender Balance</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="insurance" name="insurance" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="insurance">Family Health Insurance</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="mentoring" name="mentoring" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="mentoring">Mentoring Available</label>
-
-
-        <input type="checkbox" class="btn-check" id="zero_harrassment" name="zero_harrassment" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="zero_harrassment">Zero Tolerance for Harrassmnent</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="no_pay_gap" name="no_pay_gap" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="no_pay_gap">No Pay Gap</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="diverse_interview" name="diverse_interview" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="diverse_interview">Diverse Interview Panel</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="open_to_bootcamp" name="open_to_bootcamp" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="open_to_bootcamp">Open to Bootcamp/Conversion Graduates</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="open_to_career_gap" name="open_to_career_gap" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="open_to_career_gap">Open to Applicants With Career Gap</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="parttime" name="parttime" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="parttime">Part Time</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="fourday" name="fourday" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="fourday">4 Day Week</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="childcare" name="childcare" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="childcare">Childcare available</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="remote_work" name="remote_work" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="remote_work">Remote Work Option</label>
-
-
-
-        <input type="checkbox" class="btn-check" id="experience_requirements" name="experience_requirements"
-          autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="experience_requirements">Realistic Experience
-          Requirements</label>
-
-          <input type="checkbox" class="btn-check" id="jobshare" name="jobshare"
-          autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="jobshare">Job Sharing</label>
-
-       
-
-
-        <input type="checkbox" class="btn-check" id="flexible_hours" name="flexible_hours" autocomplete="off">
-        <label class="btn btn-outline-primary m-1" for="flexible_hours">Flexible Hours</label>
+        <label
+          class="btn btn-outline-primary m-1"
+          for="genderbalance"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Bridging the gender gap can improve employee engagement, retention,
+          financial returns and innovation."
+          >Good Gender Balance</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="insurance"
+          name="insurance"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="insurance"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Family health insurance is a way of achieving a more balanced representation of
+          both genders in a company."
+          >Family Health Insurance</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="mentoring"
+          name="mentoring"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="mentoring"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Mentoring, harnesses the people in an organisation to learn and grow together, to
+          share experiences and knowledge, and level up across the board. That's why mentoring is such an effective
+           method to support diversity and inclusion in your organisation.”>Mentoring Available"
+          >Mentoring Available</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="zero_harrassment"
+          name="zero_harrassment"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="zero_harrassment"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Zero-tolerance policies against harassment, bullying and discrimination dictate that any
+          allegations are taken seriously and handled confidentially and sympathetically. Records of incidents should
+          be made, and action against those accused of misconduct should be taken only with the accuser's explicit
+          consent."
+          >Zero Tolerance for Harrassmnent</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="no_pay_gap"
+          name="no_pay_gap"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="no_pay_gap"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="The gender pay gap is the difference in the average hourly wage of men and women across
+          a workforce."
+          >No Pay Gap</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="diverse_interview"
+          name="diverse_interview"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="diverse_interview"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Bringing diversity to your interview panels isn't only the right thing to do, it is immensely
+          beneficial. Interview panel diversity helps you avoid hiring based on shared biases and helps you assess candidates
+          in a more thorough manner.”>Diverse Interview Panel"
+          >Diverse Interview Panel</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="open_to_bootcamp"
+          name="open_to_bootcamp"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="open_to_bootcamp"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="When programs provide job placement support, women are more
+          likely to overcome some of the numerous barriers to entry, such as implicit and explicit biases or regressive
+          gender stereotypes.”>Open to Bootcamp/Conversion Graduates"
+          >Open to Bootcamp/Conversion Graduates</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="open_to_career_gap"
+          name="open_to_career_gap"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="open_to_career_gap"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Women are more likely to have careers breaks due to pregnancy and caring
+          responsibilities. Open for careers gap would be a way to reduce the gender bias."
+          >Open to Applicants With Career Gap</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="parttime"
+          name="parttime"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="parttime"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Part-time employment has repeatedly been proposed as a solution for integrating women into
+          the labor market."
+          >Part Time</label
+        >
+        <input
+          type=" checkbox"
+          class="btn-check"
+          id="fourday"
+          name="fourday"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="fourday"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="The four-day week can promote gender equality by giving workers the chance to have a
+          better work-life balance."
+          >4 Day Week</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="childcare"
+          name="childcare"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="childcare"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Childcare is a way of achieving a more balanced gender representation in a company."
+        >
+          Childcare available</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="remote_work"
+          name="remote_work"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="remote_work"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Remote work would attract both men and women that have caring responsibilities."
+          >Remote Work Option</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="experience_requirements"
+          name="experience_requirements"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="experience_requirements"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Realist experience description would increase the chances
+          to attract both men and women, shortening the gender bias gap."
+          >Realistic Experience Requirements</label
+        >
+        <input
+          type="checkbox"
+          class="btn-check"
+          id="jobshare"
+          name="jobshare"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="jobshare"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Job shares can help women to stay in employment, increasing the number available for promotion to senior roles"
+          >Job Sharing
+        </label>
+        <input
+          type=" checkbox"
+          class="btn-check"
+          id="flexible_hours"
+          name="flexible_hours"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary m-1"
+          for="flexible_hours"
+          data-bs-toggle="popover"
+          data-bs-trigger="hover"
+          data-bs-content="Flexible hours can boost the company image and attract more applicants.
+          Including woman and parents in general."
+          >Flexible Hours</label
+        >
       </div>
       <button type="submit" class="btn btn-warning">Submit</button>
     </form>
-
-
   </div>
 </div>
 {% endblock %}

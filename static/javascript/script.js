@@ -17,24 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send();
     }
     
-    const slidingOne = document.querySelector('.slide-in');
     const slidingTwo = document.querySelector('.slide-in-two');
-    const slidingThree = document.querySelector('.slide-in-three');
-    
     window.addEventListener('scroll', () => {
         const {scrollTop, clientHeight} = document.documentElement;
-        const topElementToTopViewport = slidingOne.getBoundingClientRect().top;
-        if(scrollTop > (scrollTop + topElementToTopViewport).toFixed() - clientHeight * 0.8){
-            slidingOne.classList.add('active')
+      
+        if(slidingTwo){
+            const topElementToTopViewport2 = slidingTwo.getBoundingClientRect().top;
+            if(scrollTop > (scrollTop + topElementToTopViewport2).toFixed() - clientHeight * 0.8){
+                slidingTwo.classList.add('active')
+            }
         }
-        const topElementToTopViewport2 = slidingTwo.getBoundingClientRect().top;
-        if(scrollTop > (scrollTop + topElementToTopViewport2).toFixed() - clientHeight * 0.8){
-            slidingTwo.classList.add('active')
-        }
-        const topElementToTopViewport3 = slidingThree.getBoundingClientRect().top;
-        if(scrollTop > (scrollTop + topElementToTopViewport3).toFixed() - clientHeight * 0.8){
-            slidingThree.classList.add('active')
-        }
+        
     })
 }, false);
 
@@ -1051,18 +1044,22 @@ const jobBefore = {
 // List of all the jobs on select careers before
 const selectBefore = document.getElementById('select-before');
 for (let key in jobBefore){
-    var opt = document.createElement('option');
-    opt.value = key;
-    opt.innerHTML = key;
-    selectBefore.appendChild(opt);
+    if(selectBefore){
+        var opt = document.createElement('option');
+        opt.value = key;
+        opt.innerHTML = key;
+        selectBefore.appendChild(opt);
+    }
 }
 // List of all the jobs on select careers after
 const selectAfter = document.getElementById('select-after');
 for (let key in jobAfter){
-    var opt = document.createElement('option');
-    opt.value = key;
-    opt.innerHTML = key;
-    selectAfter.appendChild(opt);
+    if(jobAfter){
+        var opt = document.createElement('option');
+        opt.value = key;
+        opt.innerHTML = key;
+        selectAfter.appendChild(opt);
+    }
 }
 
 function calculate() {

@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
-@import "style2.css";
-
 /*---- LOGIN ----*/
 
 #login_from {
@@ -159,18 +157,17 @@
 }
 .btn-insurance {
   background-color: #53d969;
-  color: #ffffff;
 }
 .btn-mentor {
   background-color: #3daadc;
   color: #ffffff;
 }
 .btn-zero-tolerance {
-  background-color: #167efc;
+  background-color: #e70f9b;
   color: #ffffff;
 }
 .btn-no-pay-gap {
-  background-color: #3daadc;
+  background-color: #790f94ac;
   color: #ffffff;
 }
 .btn-diverse-panel {
@@ -179,7 +176,6 @@
 }
 .btn-bootcamp {
   background-color: #afdd32;
-  color: #ffffff;
 }
 .btn-career-gap {
   background-color: #9e2d7b;
@@ -191,11 +187,17 @@
 }
 .btn-four-day {
   background-color: #9ae19c55;
-  color: #ffffff;
 }
 .btn-realistic-experience {
   background-color: #08f4cd;
-  color: #ffffff;
+}
+
+.btn-gender-balance {
+  background-color: #08f4cd3c;
+}
+
+.btn-job-share {
+  background-color: #e71a813d;
 }
 
 /* preserves line breaks in job description text  */
